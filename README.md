@@ -47,15 +47,19 @@ Features to enhance:
 2. Include caching for performance tuning.
 ....
 
-
+Feeds Page:
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/1.png)
 <br>
+Album/Photos Page:
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/2.png)
 <br>
+Messaging Page:
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/3.png)
 <br>
+Ticket Details:
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/4.png)
 <br>
+Admin Page
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/5.png)
 <br>
-![alt text](https://github.com/asifu9/myproject/blob/master/images/6.png)
+
