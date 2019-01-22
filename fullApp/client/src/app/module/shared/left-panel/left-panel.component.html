@@ -1,0 +1,95 @@
+<div class="columns addPadding">
+  <div class="column is-narrow">
+
+
+    <div class="card borderless changeBackGroundColor">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="{{photoPath}}">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <!--<div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>-->
+          <div class="media-content">
+            <p class="title is-4 titleNameStyle">{{user.name}}</p>
+            <p class="subtitle is-6 emailStyle">{{user.emailId}}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          <span>	<mat-icon>work</mat-icon> {{getDate(user.doj)}}</span>
+          <br>
+          <span>	<mat-icon>cake</mat-icon>{{getDate(user.dob)}}</span>
+
+          <!--<div class="columns">
+            <div class="column lineSeperatorLeft">
+              Friends <span class="tag"> {{user?.friendsCount}}</span> <span class="dividerStyle">|</span> <span class="tag">{{user?.followCount}}</span>              Followers
+            </div>
+
+          </div>-->
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+
+
+    <div class="card borderless changeBackGroundColor">
+      <div class="ui vertical text menu addSpaceAndStyle">
+        <a class="item" [ngClass]="{'activeStyle': selectedMenu === 'feeds'}" *ngIf="session.isActivityExists('feed',null)" [routerLink]="['feed']" style="font-family: 20px;">
+          <mat-icon> rss_feed</mat-icon><span class="mylink"> Feeds </span>
+        </a>
+        <a class="item" [ngClass]="{'activeStyle': selectedMenu === 'photoAlbums'}" *ngIf="session.isActivityExists('album',null)" [routerLink]="['albums']">
+          <mat-icon>album</mat-icon><span class="mylink">Photos</span>
+        </a>
+        <a class="item" [ngClass]="{'activeStyle': selectedMenu === 'messages'}" *ngIf="session.isActivityExists('message',null)" [routerLink]="['messages']">
+          <mat-icon> message</mat-icon><span class="mylink"> Messages</span>
+        </a>
+        <!--<a class="item" *ngIf="session.isActivityExists('group',null)" [routerLink]="['group']">
+          <i class="users icon"></i><span class="mylink"> Groups</span>
+        </a>-->
+        <a class="item" [ngClass]="{'activeStyle': selectedMenu === 'tickets'}" *ngIf="session.isActivityExists('ticket',null)" [routerLink]="['tickets']">
+          <mat-icon> local_offer</mat-icon><span class="mylink"> Tickets</span>
+        </a>
+        <!--<a class="item" *ngIf="session.isActivityExists('ticket',null)" [routerLink]="['project']">
+          <i class="users icon"></i><span class="mylink"> Projects</span>
+        </a>-->
+        <!--<a class="item" *ngIf="session.isActivityExists('ticket',null)" [routerLink]="['events']">
+          <i class="users icon"></i><span class="mylink"> Events</span>
+        </a>-->
+        <!--<a class="item" *ngIf="session.isActivityExists('user',null)" [routerLink]="['users']">
+          <i class="user icon"></i><span class="mylink"> Users</span>
+        </a>-->
+
+        <a class="item" [ngClass]="{'activeStyle': selectedMenu === 'leaves'}" *ngIf="session.isActivityExists('admin','adminaccess')" [routerLink]="['leaves']">
+          <mat-icon>exit_to_app</mat-icon><span class="mylink"> Leaves</span>
+        </a>
+        <a class="item" *ngIf="session.isActivityExists('admin','adminaccess')" [routerLink]="['/admin']">
+          <mat-icon>settings</mat-icon><span class="mylink"> Admin</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+
+
+<popup #modal2>
+  <div class="app-modal-body">
+    <h1>Change profile picture...</h1>
+    <!--<fileUpload [user]="user"></fileUpload>-->
+    <div #container></div>
+  </div>
+</popup>

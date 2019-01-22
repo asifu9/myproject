@@ -1,0 +1,38 @@
+<span class="headling-style-admin">Company Setting</span>
+<br>
+
+<form *ngIf="companySetting" [formGroup]="companySettingForm" novalidate>
+
+      <div class="input-field">
+    <select name="dateFormat" formControlName="dateFormat">
+            <option value="MM/dd/yyyy">MM/DD/YYYY (05/25/2018)</option>
+            <option value="yyyy/MM/dd">YYYY/MM/DD (2018/05/25)</option>
+            <option value="dd/MM/yyyy">DD/MM/YYYY (25/05/2018)</option>
+        </select>
+    <label>Date Format</label>
+  </div>
+  <div class="input-field">
+      <select name="leaveStartEndMonths" formControlName="leaveStartEndMonths">
+            <option value="Jan-Dec">Jan-Dec</option>
+            <option value="Apr-Mar">Apr-Mar</option>
+        </select>
+    <label>Leave start and End</label>
+  </div>
+    <div class="input-field">
+
+      <input placeholder="Admin email" type="email" formControlName="adminMail">
+      <label>Admin Email</label>
+    </div>
+  
+  <div class="field is-horizontal">
+    <div class="button-section">
+      <button class="button-cancel" (click)="cancel()">
+          Cancel
+        </button> &nbsp;&nbsp;
+      <button class="button-save" (click)="createUpdate()">
+          Save
+        </button>
+
+    </div>
+  </div>
+</form>

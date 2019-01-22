@@ -1,0 +1,27 @@
+<app-report-filter  (change)="filterValueChangedParent($event)"  [data]="data" [reportConfig]="reportConfig"></app-report-filter>
+<div style="overflow: auto;">
+<table *ngIf="updatedData.length>0">
+  <thead>
+    <td *ngFor="let i of filteredConfig" [style.width]="i.width" style="width: 200px;">
+      <span (click)="sortAsyDysn(i.columnName)" >
+          <span *ngIf="i.isClicked"> 
+            <span *ngIf="sortType">^</span>
+            <span *ngIf="!sortType">V</span>
+            </span>
+         {{i.columnDisplayName}} </span>
+    </td>
+  </thead>
+  <tr *ngFor="let item of updatedData|sort : sortField:sortType | reportfilter:filterModel " >
+    <td *ngFor="let i of getProperty(item)">
+      <span *ngIf="!isVisible(i)">
+      <span *ngIf="getType(i)=='InputField'||getType(i)=='TextArea'">
+          {{item[i]}}
+      </span>
+      <span *ngIf="getType(i)=='DateTime'">
+        {{getFormattedDate(i,item)}}
+      </span>
+      </span>
+    </td>
+  </tr>
+</table>
+</div>

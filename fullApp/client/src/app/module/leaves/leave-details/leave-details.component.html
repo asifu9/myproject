@@ -1,0 +1,20 @@
+<div class="container-flex">
+
+
+  <app-report-data [header]="'leaveDetails'" [createNeeded]="'false'" [meta]="userLeavesMeta" [data]="this.userLeaves?.leaves"></app-report-data>
+
+</div>
+
+<div style="height: 100px;"></div>
+
+<div class="container-flex">
+  <app-report-data [header]="'appliedLeavesStatus'" [updateURL]="'edit'" [createURL]="'create'" (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" (createEventEmitter)='showCreate($event)' [meta]="appliedLeavesMeta" [data]="this.appliedLeaves"></app-report-data>
+</div>
+
+<!--<div class="floatRight">
+</div>-->
+<br>
+<br>
+<!--<div class="container-flex">
+  <app-leave-create *ngIf="createLeave" [leaveTypes]="userLeaves.leaves"   [createLeave]="createLeave"></app-leave-create>
+</div>-->

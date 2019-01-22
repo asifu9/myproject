@@ -1,0 +1,51 @@
+<div style="padding-top:20px;width:50%;">
+</div>
+<div class="columns">
+  <div class="column is-three-quarters">
+     <router-outlet></router-outlet>
+  </div>
+  <div class="column">
+    <ul class="nameSection">
+      <li style="background-color: white;">
+      <span class="messageHeader"> {{'groups'|in18}}</span>
+      <span class="messageHeaderIcon" ><mat-icon (click)="searchGroup()" >search</mat-icon> <mat-icon  (click)="createMessageGroup()" >add</mat-icon></span>
+      </li>
+      <li *ngFor="let i of userMapItems?.messageChannelObj;"  [ngClass]="{'active': selectedIndex == i.id}">
+        <a style="vertical-align: top;padding-left:0px;width:100%;" [routerLink]="['channel/',i.id]">
+         <img style="width:30px;height: 30px;" [src]="getPhotoPathIcon(i.photo)">&nbsp; <!--<a (click)="showChannelData(i,i.id)">{{i.name}}</a>-->
+          {{i.name}}
+        </a>
+      </li>
+    </ul>
+    <div style="padding-top:15px;"></div>
+    <ul class="nameSection">
+      <li style="background-color: white;">
+      <span class="messageHeader"> {{'directMessage'|in18}}</span>
+      <span class="messageHeaderIcon"  ><mat-icon (click)="searchUser()">search</mat-icon> </span>
+      </li>
+      <li *ngFor="let i of userMapItems?.messageUserObj"  [ngClass]="{'active': selectedIndex == i.id}">
+          <a style="vertical-align: top;padding-left:0px;width:100%;" [routerLink]="['user/',i.id]">
+          <img style="width:30px;height: 30px;" [src]="getPhotoPath(i.photo)">&nbsp;  {{i.name}}
+            <span *ngIf="userMapItems && userMapItems.messageUserCounter[i.id] && userMapItems?.messageUserCounter[i.id]!=0" class="notification-style-counter">{{userMapItems?.messageUserCounter[i.id]}}</span>
+            </a>
+      </li>
+    </ul>
+    <br>
+  </div>
+ 
+  
+</div>
+
+
+
+
+
+<div id="temp">
+  <popup #messageModel>
+    <div class="app-modal-body">
+
+      <!--<fileUpload [user]="user"></fileUpload>-->
+      <div #container></div>
+    </div>
+  </popup>
+</div>

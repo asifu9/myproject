@@ -1,0 +1,60 @@
+.likeStyle{
+    color:grey;
+    font-size: 14px;
+    font-family: serif;
+    background-color:white;
+
+}
+.likeStyle:hover{
+    color:red;
+    font-weight: bold;
+    cursor: pointer; cursor: hand;
+}
+.likeStyleactive{
+    color:red;
+    font-weight: bold;
+    cursor: pointer; cursor: hand;
+    background-color:white;
+    font-size: 14px;
+    font-family: serif;
+}
+.active{
+    color:red;
+}
+.inactive{
+    color:grey;
+}
+.likeStyleDateTime{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 12px;
+    background-color:white;
+}
+
+.changeBackGroundColor{
+    background-color: white;
+    padding-bottom: 10px;
+    width:300px;
+}
+.addPadding{
+    padding-top:70px;
+}
+.lineSeperatorLeft{
+   text-align: center;
+}
+.dividerStyle{
+  color:gray;
+}
+.tag{
+    background-color: #59CAD6;
+    color:white;
+    font-size: 13px;
+    font-weight: bold;
+}
+.space{
+    height: 8px;
+}
+.addSpaceAndStyle{
+    padding:10px 10px 10px 25px;
+    font-size: 15px;
+    color:#939393;
+}

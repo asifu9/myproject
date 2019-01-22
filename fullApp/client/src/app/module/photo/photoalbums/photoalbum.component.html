@@ -1,0 +1,63 @@
+<div class="wrapper" style="padding-top:30px;width: 80%;">
+  <span class="headling-style-admin">{{'album'|in18}}</span>
+
+
+
+  <div style="padding-top:10px;">
+
+    <div class="input-field eight wide field">
+
+
+      <input type="text" placeholder="{{'albumName'|in18}}" [(ngModel)]="album.name" name="album.name">
+      <label>{{'albumName'|in18}}</label>
+    </div>
+
+  </div>
+  <div>
+    <div class="input-field eight wide field">
+
+      <textarea [(ngModel)]="album.description" placeholder="{{'description'|in18}}" name="album.description" rows="1" cols="1" (change)="doTextareaValueChange($event)"></textarea>
+      <label>{{'description'|in18}}</label>
+    </div>
+
+  </div>
+  <br>
+  <div>
+    <div class="radio-header"><label>{{'privacy'|in18}}</label></div>
+    <div class="input-radio">
+      <!--<input type="radio" [(ngModel)]="album.privacyStatus" checked="checked" value="1">
+        <label>Public</label>
+
+        <input type="radio"  [(ngModel)]="album.privacyStatus" value="2">
+        <label>Private</label>-->
+
+      <mat-radio-group class="example-radio-group"  [(ngModel)]="album.privacyStatus">
+        <mat-radio-button class="example-radio-button"  value="1" (hover)="hereIam()">
+          {{'public'|in18}}
+        </mat-radio-button>
+        <mat-radio-button class="example-radio-button" value="2">
+          {{'private'|in18}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="button-section">
+      <button class="button-cancel"  (click)="cancel()">
+          {{'cancel'|in18}}
+        </button>
+        &nbsp;&nbsp;
+      <button class="button-save" *ngIf="isCreateMode" (click)="save()">
+          {{'save'|in18}}
+        </button> &nbsp;&nbsp;
+      <button class="button-save" *ngIf="!isCreateMode" (click)="updateUser()">
+          {{'update'|in18}}
+        </button>
+
+    </div>
+  </div>
+</div>

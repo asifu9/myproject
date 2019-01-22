@@ -1,0 +1,103 @@
+<div style="padding-top:40px;">
+</div>
+<div>
+    <div class="wrapper" style="width:70%;">
+        <span class="header-block">Group Information</span>
+        <div class="field">
+
+            <div class="two fields">
+                <div class="input-field">
+                    <input type="text" [(ngModel)]="group.name" placeholder="Group Name">
+                    <label>Group Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="two fields">
+                <div class="input-field">
+                    <input type="text" [(ngModel)]="group.groupUniqueName" placeholder="Group Unique Name">
+                    <label>Group Unique Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="fields">
+                <div class="twelve wide input-field">
+                    <textarea [(ngModel)]="group.description" placeholder="Description"></textarea>
+                    <label>Description</label>
+                </div>
+            </div>
+        </div>
+        <span class="ui dividing sub-header-block">Privacy Information</span>
+
+        <div class="field">
+            <div class="ui toggle checkbox">
+                <div class="ui toggle mini checkbox">
+                    <input type="checkbox" name="public" id="public" value="public">
+                    <label class="toggle-link">Public</label>
+                </div>
+                <div class="ui toggle mini checkbox">
+                    <input type="checkbox" name="friends" id="friends" value="friends">
+                    <label class="toggle-link">Friends</label>
+                </div>
+                <div class="ui toggle mini checkbox">
+                    <input type="checkbox" name="private" id="private" value="private">
+                    <label class="toggle-link">Private</label>
+                </div>
+
+            </div>
+
+        </div>
+        <!--<h4 class="ui dividing sub-header-block">Assign Default Users</h4>
+        <div class="field">
+            
+            <div class="ui dropdown">
+                <input type="hidden" name="card[type]" (change)="changed($event)" value="none">
+                <div class="default text">Type</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" data-value="none">
+                        <i class="user icon"></i> Select User
+                    </div>
+                    <div *ngFor="let i of users" class="item" data-value="i">
+                        <i class="visa icon"></i> {{i.name}}
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>-->
+        <span class="sub-header-block">Group Profile Photo</span>
+        <div >
+            <div class="seven wide field">
+                <label class="image-upload-text">Select a Photo</label>
+                <label class="file-label">
+               <input type="file"     hidden class="file-input" #groupProfilePhoto>
+            </label>
+            </div>
+        </div>
+        <br>
+        <span class="sub-header-block">Group Info Photos</span>
+        <div >
+            <div class="seven wide field">
+                <label class="image-upload-text">Select List of Photo</label>
+                <label class="file-label">
+               <input type="file"  multiple="multiple"   hidden class="file-input" #groupOtherPhoto>
+            </label>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+         <div>
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          Cancel
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="saveGroup()">
+          Save
+        </button>
+
+        </div>
+      </div>
+    </div>
+</div>

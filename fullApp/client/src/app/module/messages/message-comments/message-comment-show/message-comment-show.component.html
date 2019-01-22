@@ -1,0 +1,13 @@
+
+  <div class="block-shadow">
+    <span class="name-comment-Style">
+         {{item.messagedByUser.name}} :
+    </span>
+    <span class="messageStyle">
+         {{item.message}}
+    </span>
+    <br>
+    <div class="likeCommentSection">
+      <a (click)="removeComment(item)">{{'delete'|in18}}</a>
+    </div>
+  </div>

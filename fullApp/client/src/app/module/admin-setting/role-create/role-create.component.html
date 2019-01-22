@@ -1,0 +1,32 @@
+
+<span class="headling-style-admin">{{header}}</span>
+<br>
+
+<form *ngIf="role" [formGroup]="roleForm" novalidate>
+  <div >
+    <div class="input-field">
+     
+        <input  type="text" size="50" placeholder="Role Name" formControlName="name">
+       <label>Name</label>
+    </div>
+    <div class="input-field">
+     
+        <input  type="text" size="50" placeholder="Role Type" formControlName="type">
+       <label>Type</label>
+    </div>
+
+<div class="ui divider"></div>
+  <div class="field is-horizontal">
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          Cancel
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+        </div>
+      </div>
+ </div>
+</form> 

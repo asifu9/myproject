@@ -1,0 +1,202 @@
+<div>
+  <div class="columns message-header-block">
+    <div class="column " style="width: 100%;">
+          <label>
+        {{targetUserName}}
+     </label>
+    </div>
+    <div class="column" style="width: 100%;">
+      <div style="float: right;font-size: 12px;text-align: right;" *ngIf="isEditable">
+        <span style="color:gray;" (click)="editGroup()" ><mat-icon >edit</mat-icon></span>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<ul>
+
+  <li>
+    <div class="field mybuttonstyle" *ngIf="targetUser || channelId">
+      <div class="main-text-area">
+        <textarea [(ngModel)]="textData" (focus)="focusIn()" (focusout)="focusOut()" type="text" placeholder="Primary textarea"></textarea>
+        <img src="{{mainPhoto}}">
+      </div>
+      <button *ngIf="showButton" class="ui button" style="height: 48px;border-radius: 0px;" type="button" (click)="sendMessage()">Post</button>
+
+    </div>
+    <app-inline-pogress style="margin:0px;padding:0px;" [inProgress]="inPogress"></app-inline-pogress>
+    <hr>
+  </li>
+  <br>
+
+  <li *ngFor="let ii of messages" class="display-block">
+    <div class="header-display-block">
+      <img width="40px" height="40px" src="{{ii.messagedByUser.photoPath}}">
+      <div>
+        <label> {{ii.messagedByUser.name}} :</label>
+        <span>
+        <span>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <a class="menuStyle" (click)="deleteMe(ii)">
+              <mat-icon>delete</mat-icon>
+              <span>{{'delete'|in18}}</span>
+        </a>
+
+        </mat-menu>
+        <i class="fa fa-clock-o" aria-hidden="true"></i> {{getTimefromEpoch(ii.createdOn)}}
+        </span>
+        </span>
+      </div>
+
+    </div>
+
+    <p>
+      {{ii.message}}
+    </p>
+    <div class="likeCommentSection">
+      <a class="ui label" style="background-color: white;" *ngIf="ii.groupId" (click)="showComment(ii)">
+        <!--<i class="comment icon"></i> 23-->
+        <mat-icon> comment</mat-icon> <span class="mylink" *ngIf="ii.comments?.length" style="width:auto;">{{ii.comments?.length}}</span>
+      </a>
+      <!--<a *ngIf="ii.groupId" (click)="showComment(ii)">
+          <mat-icon> comment</mat-icon>
+      </a>-->
+      <!--<span *ngIf="ii.comments?.length" class="number-style-counter">{{ii.comments?.length}}</span>-->
+      <!--<span *ngIf="ii.groupId">.</span>-->
+
+
+      <div class="message-comment-section">
+        <div>
+          <app-message-comment-create (commentAdded)="addedData($event)" (valueChange)="showHideValue($event)" [showTextArea]="showTextArea"
+            *ngIf="selectedComment?.id==ii.id" [message]="ii"></app-message-comment-create>
+
+        </div>
+        <div *ngFor="let c of ii.comments;let ind=index;">
+          <app-message-comment-show (commentremoved)="commentRemovedInMessage($event)" [item]="c" [message]="ii"></app-message-comment-show>
+        </div>
+      </div>
+    </div>
+
+  </li>
+</ul>
+<!--<div>
+
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+              <img src="{{ii.messagedByUser.photoPath}}">
+            </a>
+        <div class="content" style="padding-top:0px;margin-top:0px;">
+          <table style="padding-top:0px;margin-top:0px;">
+            <tr>
+              <td style="width:80px;">
+                <table>
+                  <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                      <a class="author" style="font-size:12px;">{{ii.messagedByUser.name}}</a>
+                      <i class="big long arrow green right icon"></i><br>
+
+                    </td>
+                  </tr>
+                </table>
+
+
+              </td>
+              <td style="padding-top:0px;margin-top:0px;">
+                <table style="padding-top:0px;margin-top:0px;">
+                  <tr>
+                    <td>
+                      <span class="subjectStyle" style="font-size: 12px;font-family:calibri;">{{ii.subject}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span style="font-size: 12px;font-family:calibri;">{{ii.message}}</span>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td style="float:right">
+                <table style="float:right">
+                  <tr>
+                    <td>
+                      <a class="author" style="font-size:12px;">{{ii.messageToUser.name}}</a><br>
+
+
+                    </td>
+                    <td>
+
+                      <a class="avatar">
+                                    <img src="{{ii.messageToUser.photoPath}}">
+                                  </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+
+<!--<div id="replaySection" class="ui tall segment" *ngIf="isReplayClicked===true">
+
+  <div (click)="popupMe(ii)">
+
+    <div class="ui comments">
+      <div class="comment">
+        <a class="avatar">
+              <img src="{{currentUserObj?.photoPath}}">
+            </a>
+        <div class="content" style="padding-top:0px;margin-top:0px;">
+          <table style="padding-top:0px;margin-top:0px;">
+            <tr>
+              <td style="width:80px;">
+                <table>
+                  <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                      <a class="author" style="font-size:12px;">{{currentUserObj?.name}}</a>
+
+
+                    </td>
+                  </tr>
+                </table>
+
+
+              </td>
+              <td style="padding-top:0px;margin-top:0px;">
+                <form class="ui form">
+                  
+                  <div class="field">
+                    <label>Subject</label>
+                    <input type="text" name="first-name" [(ngModel)]="replay.subject" placeholder="Subject">
+                  </div>
+                  <div class="field">
+                    <label>Message</label>
+                    <textarea type="text" name="last-name" [(ngModel)]="replay.message" placeholder="Description"></textarea>
+                  </div>
+
+                  
+                  <button class="ui button" type="button" (click)="cancelReply()">Cancel</button>
+
+                </form>
+              </td>
+
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->

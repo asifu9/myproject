@@ -1,0 +1,100 @@
+<span class="headling-style-admin">{{header}}</span>
+<br>
+<form [formGroup]="eventsForm" novalidate>
+
+    <div class="input-field" *ngIf="readOnly">
+        <label>{{'status'|in18}}
+        </label>
+        <h5 class="ui block header" style="margin-top:0px;">
+            status
+        </h5>
+
+    </div>
+    <div class="input-field">
+
+        <input type="text" placeholder="{{'name'|in18}}" formControlName="name">
+        <label>{{'name'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+        <textarea rows="2" cols="1" placeholder="{{'description'|in18}}" formControlName="description"></textarea>
+        <label>{{'description'|in18}}</label>
+    </div>
+    <!--<div class="field">
+        <label>{{'eventLevel'|in18}}</label>-->
+
+        <!--<select  class='select-option' formControlName="priority" required>
+           
+              <option class='option' *ngFor='let p of this.ticketService?.ticketPriority' [selected]="p?.storedValue==priority" [value]="p?.storedValue">{{p?.displayValue}}</option>
+          </select>-->
+    <!--</div>-->
+    <!--<div class="field">
+        <label>{{'department'|in18}}</label>
+        <span *ngIf="readOnly">-->
+          <!--{{this.ticketService.ticketCategoryMap[this.ticket.ticketCategoryId]}}-->
+      <!--</span>-->
+        <!--<select *ngIf="!readOnly" class='select-option' name="ticketCategoryId" formControlName="ticketCategoryId"  required>
+              <option class='option' *ngFor='let option of this.ticketService?.ticketCategory' [value]="option?.storedValue" [selected]="option?.storedValue==ticketCategoryId" [value]="option?.storedValue">{{option?.displayValue}}</option>
+          </select>-->
+
+    <!--</div>-->
+    <div class="input-field">
+
+
+
+        <label>{{'eventStartDate'|in18}}</label>
+        <input style="width:120px;" readonly matInput [matDatepicker]="picker" placeholder="{{'chooseDate'|in18}}" formControlName="eventStartDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <div class="input-field">
+
+
+        <label>{{'eventEndDate'|in18}}</label>
+        <input style="width:120px;" readonly matInput [matDatepicker]="picker1" placeholder="{{'chooseDate'|in18}}" formControlName="eventEndDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+
+
+    </div>
+</form>
+<br>
+<div>
+    <div class="input-field">
+        <div>
+            <div *ngFor="let item of this.reminders.dates">
+                {{getDate(item)}}
+            </div>
+            <div class="input-field">
+
+
+
+        <input style="width:120px;" readonly matInput [matDatepicker]="picker2" placeholder="{{'chooseDate'|in18}}" [(ngModel)]="date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+
+
+
+
+
+
+                <button class="ui primary samll button" (click)="addDate()">{{'add'|in18}}</button>
+            </div>
+            <!--<input type="checkbox" name="notifyToManager" formControlName="notifyToManager" style="color:black;padding-left:20px;">&nbsp;&nbsp;Notify Manager  -->
+        </div>
+        <label>{{'renderSetting'|in18}}</label>
+    </div>
+
+
+    <div class="ui divider"></div>
+    <div class="field is-horizontal">
+        <div class="button-section">
+            <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+            <button class="button-save" (click)="saveEvent()">
+          {{buttonValue|in18}}
+        </button>
+
+        </div>
+    </div>

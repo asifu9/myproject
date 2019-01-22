@@ -1,0 +1,575 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.ui.form .inline.fields .field > :first-child, .ui.form .inline.field > :first-child{
+    width:200px;
+}
+.container-flex{
+    flex: 1 1 auto;
+}
+.NameStyle{
+    color:355781;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: hand;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.contentStyle{
+    color:black;
+    font-size: 14px;
+    font-weight: normal;
+    padding-top:10px;
+    text-indent: 20px;
+    padding-bottom:15px;
+}
+.NameStyleSmall{
+    color:blue;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: hand;
+    cursor: pointer;
+}
+.mylink{
+    font-size: 14px;
+}
+
+.add-new-item{
+    color:darkgreen;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: -5px;
+    text-decoration: none;
+}
+.statusStyle{
+    font-size: 16px;
+    color:grey;
+    padding-left: 10px;
+    padding-right: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.aline-center{
+    vertical-align: middle;
+}
+.paragraphStart{
+    text-indent: 30px;
+}
+.discriptionStype{
+      color:black;
+    font-size: 14px;
+    font-weight: normal;
+    padding-top:10px;
+    text-indent: 20px;
+    padding-bottom:15px;
+}
+.dateDisplay{
+    color:gray;
+    font-size: 12px;
+}
+
+
+
+.errorStyle{
+    color:red;
+    font-size: 10px;
+}
+.requiredErrorCss{
+    color:red;
+}
+.requiredNormalCss{
+    color:black;
+}
+.errorBorderStyle{
+    border-color: red !important;
+     outline: none !important;
+    border:1px solid red !important;
+    box-shadow: 0 0 10px red;
+}
+.normalBorderStyle{
+    border-color:black;
+}
+.addTopSpace{
+   padding-top: 20px;
+}
+
+.select-option{
+    height: 44px!important;
+}
+.textFontStyle{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+
+.albumHeading{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color:#666;
+}
+.album-description{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color:#666;
+}
+
+.header-block{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color:Tomato;
+}
+.status-value{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color:black;
+}
+.sub-header-block{
+    padding-top: 10px;
+     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color:Tomato;
+}
+.toggle-link{
+     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 777;
+    font-size: 16px;
+    color:#666;
+}
+.header-description{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color:#666;
+}
+.successMessageStyle{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color:#666;
+}
+.image-upload-text{
+    padding-top: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color:#666;
+}
+.text-read-only  {
+    position: relative;
+    width:100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px inset gray;
+    font-size: 16px;
+    color:#666;
+    font-weight: 700;
+    box-shadow: none;
+    text-indent: 5px;
+    border-radius: 0px;
+    height: 30px;
+}
+.text-read-only:focus  {
+    height: 100px;
+    overflow-y: auto;
+    
+}
+
+input::-webkit-input-placeholder {
+color: #E0E0E0 !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #E0E0E0 !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #E0E0E0 !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #E0E0E0 !important;  
+}
+
+textarea::-webkit-input-placeholder {
+color: #E0E0E0 !important;
+}
+ 
+textarea:-moz-placeholder { /* Firefox 18- */
+color: #E0E0E0 !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: #E0E0E0 !important;  
+}
+ 
+textarea:-ms-input-placeholder {  
+color: #E0E0E0 !important;  
+}
+
+
+.input-field{
+    position: relative;
+    width: 50%;
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.input-field input,
+.input-field textarea  {
+    position: relative;
+    width:100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid gray;
+    font-size: 16px;
+    color:#666;
+    font-weight: 700;
+    box-shadow: none;
+    text-indent: 5px;
+    border-radius: 0px;
+}
+
+
+
+.input-radio input[type="radio"]{
+    padding: 5px 0;
+    box-sizing: border-box;
+    background: transparent;
+     border-bottom: green;
+    font-size: 16px;
+    width:20px;
+    font-weight: 700;
+    font-family: 'Source Sans Pro', sans-serif;
+    box-shadow: none;
+    text-indent: 5px;
+    border-radius: 0px;
+    margin-left: 10px;
+}
+
+.input-field mat-select {
+    padding: 15px 0;
+     border: none;
+     margin-top: 10px;
+    outline: none;
+    border-bottom: 2px solid gray;
+    border-radius: 0px;
+    box-shadow: none;
+    background: transparent;
+    width: 100%;
+      font-weight: 700;
+    box-shadow: none;
+    text-indent: 5px;
+    box-sizing: border-box;
+    display: block;
+     z-index: 10;
+}
+.input-field select option{
+    padding:10px 10px 10px 10px; 
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: pink;
+}
+.input-field ul li input{
+    position: relative;
+    width:100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid gray;
+    font-size: 16px;
+    color:#666;
+    font-weight: 700;
+    box-shadow: none;
+    text-indent: 5px;
+    border-radius: 0px;
+}
+.list-drop-down {
+    background: #555;
+}
+
+ 
+.input-field select:after{
+    padding:0 6px;
+    margin:0 0;
+    padding:0 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: pink;
+}
+
+.onlyLabel{
+      position: relative;
+  left: 0;
+font-size: 14px;
+width:auto;
+padding: 2px 5px;
+border-radius: 4px;
+color:#fff;
+font-weight: 777;
+font-size: 16px;
+ font-family: 'Source Sans Pro', sans-serif;
+background-color:#ff6347;
+}
+.input-field input:focus,
+.input-field textarea:focus {
+    border-color: #ff6347;
+}
+.radio-header label{
+    font-size: 14px;
+padding: 2px 5px;
+border-radius: 4px;
+color:#fff;
+width:auto !important;
+background-color:#ff6347;
+}
+.input-radio label {
+     font-family: 'Source Sans Pro', sans-serif;
+     font-size: 16px;
+     width:auto !important;
+     color:#666;
+}
+.input-field label{
+  position: absolute;
+  left: 0;
+    top: -25px;
+font-size: 14px;
+width:auto !important;
+padding: 2px 5px;
+border-radius: 4px;
+color:#fff;
+background-color:#ff6347;
+}
+.button-section{
+    width:100%;
+    float:right;
+    text-align: right;
+    margin-top:-20px;
+    padding:0;
+    position: relative;
+}
+.button-upload {
+    color:#fff;
+    padding:10px 20px;
+    border:none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    transition:0.5s;
+    margin-top: 20px;
+    background-color:#ff6347;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.contentHeaderStyle{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color:gray;
+}
+.button-section button {
+    color:#fff;
+    padding:10px 20px;
+    border:none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    transition:0.5s;
+    margin-top: 20px;
+    
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.button-section .button-cancel{
+    
+    background:gray;
+    
+}
+.button-section .button-cancel:hover{
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #6b3aff;
+    color:#fff;
+    cursor: pointer;
+cursor: hand;
+}
+
+.button-section .button-save{
+    background:blue;
+  
+}
+.button-section .button-save:hover{
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #6b3aff;
+    color:#fff;
+    cursor: pointer;
+cursor: hand;
+}
+.button-select {
+     color:#fff;
+    padding:10px 20px;
+    border:none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    transition:0.5s;
+      cursor: pointer;
+cursor: hand;
+    background:blue;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width:100%;
+}
+.link-button-section{
+    width:100%;
+}
+.link-new-create{
+      background: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color:#ff6347;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: right;
+}
+.link-button-section  td a{
+    background: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color:#ff6347;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: right;
+}
+.reportHeader {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    color:gray;
+}
+
+.link-button-section td span{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    color:gray;
+}
+.link-button-section td a:hover{
+    background: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 15px;
+    color:black;
+}
+.headling-style-admin{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color:gray;
+}
+.value-style-in-header{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color:black;
+}
+.contenDetailStyle{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 444;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dropdown Button */
+.dropbtn1 {
+    background-color: #fff;
+    color: #666;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 777;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 2px solid gray;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 777;
+    background-color: #87B1EA;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight:777;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content1 a:hover {background-color: #CADDF5;}
+
+/* Show the dropdown menu on hover */
+//.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown1:hover .dropbtn1 {background-color: #fff;}
+
+.iconPositionDropdown{
+    position: relative;
+    top: 3px;
+    float: right;
+    padding-left: 10px;
+}

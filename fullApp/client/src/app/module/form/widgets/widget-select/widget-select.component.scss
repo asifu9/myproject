@@ -1,0 +1,41 @@
+.form-item-container{
+        background-color: #fff;
+    background-image: none;
+    //border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    padding: 5px 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.form-item-container .list-inline li{
+        margin: 5px 0;
+}
+.highLight{
+     background: #23a9e1;
+     color:#fff;
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+font-family: 'Source Sans Pro', sans-serif;
+}
+.textInputStyle{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px !important;
+    margin-top: -5px !important;
+}
+.form-item-container .list-inline li span{
+    border: 1px solid #23a9e1;
+    border-radius: 4px;
+    padding: 4px;
+}
+.form-item-container .list-inline li span.remove {
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.form-item-container .list-inline li span.remove i{
+    color:#000;
+}

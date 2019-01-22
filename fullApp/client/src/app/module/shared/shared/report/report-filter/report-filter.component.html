@@ -1,0 +1,19 @@
+<div class="columns">
+  <div class="column" style="padding-left: 25px; height: auto;">
+    <app-filter-type (change)="filterValueChanged($event)" [filter]="filters"></app-filter-type>
+  </div>
+  <div class="column is-1" style="text-align: right;">
+    <div class="dropdown">
+      <button class="dropbtn"><span class="icon"><i class=" large filter icon"></i></span>
+        </button>
+      <div class="dropdown-content">
+          <ul>
+              <li *ngFor="let da of this.reportConfig?.columns">
+                <p (click)="showFilter(da)" >{{da.columnDisplayName}}</p>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

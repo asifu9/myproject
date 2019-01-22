@@ -1,0 +1,58 @@
+<div class="backgroundColorMain ">
+  <span class="message-header-block">{{'messageGroup'|in18}}</span>
+</div>
+<br>
+<form [formGroup]="messageGroup" novalidate>
+  <div class="wrapper">
+    <div class="columns" style="width: 100%;">
+      <div class="column is-half">
+        <div class="input-field" style="width: 90%;">
+
+          <input class="input" type="text" size="50" required="" placeholder="{{'name'|in18}}" formControlName="name">
+          <label>{{'name'|in18}}</label>
+        </div>
+        <div class="input-field" style="width: 90%;">
+          <textarea rows="2" cols="5" placeholder="{{'description'|in18}}" formControlName="description"></textarea>
+          <label>{{'description'|in18}}</label>
+
+        </div>
+      </div>
+      <div class="column" *ngIf="messageChannel && messageChannel.id" style="width: 30% !important;">
+          <div class="input-field" style="width: 70%;">
+          <label>{{'groupImage'|in18}}</label>
+            <fileUpload [single]="'true'" [type]="'groupMessage'" (uploadDone)="onChangeupload($event)" [user]="sessionService.currentUser" [userId]="messageChannel?.id"></fileUpload>
+            <br>
+            <img  *ngIf="messageChannel.photo" [src]="getImage(messageChannel.photo)" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);height: 100px;width:100px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field">
+
+      <br>
+      <br>
+      <mat-chip-list style="width: 500px;" aria-orientation="horizontal">
+        <mat-chip *ngFor="let item of memberUser">{{item.name}}</mat-chip>
+      </mat-chip-list>
+      <label>{{'selectUsers'|in18}} 
+            <button (click)="selectUsers()" style="background-color: green;color:white;" mat-button color="primary">{{'addUsers'|in18}}
+            </button>
+        </label>
+
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{'save'|in18}}
+        </button>
+
+      </div>
+    </div>
+  </div>
+</form>
+<mat-dialog-actions align="end">

@@ -1,0 +1,81 @@
+  <div class="four wide column">
+<div class="ui card">
+  
+  <div class="image">
+    <img src="{{path}}/{{item.createdBy}}/{{item.albumId}}/{{item.path}}" style="width: 300px; height:300px;"> 
+  </div>
+  <div class="content">
+    <div class="columns is-centered">
+      <div class="column ">
+         <mat-icon>edit</mat-icon>
+      </div>
+      <div class="column " (click)="modal1.show()">
+          <mat-icon>share</mat-icon>
+      </div>
+      <div class="column">
+        <!--<i *ngIf="liked==false" class="heart outline like icon" (click)="likePhoto()"></i>
+          <i *ngIf="liked==true" class="heart red like icon" (click)="likePhoto()"></i>-->
+          <mat-icon>thumb_up_alt</mat-icon>
+        {{item?.likes?.count}}
+      </div>
+       <div class="column">
+        <!--<i *ngIf="liked==false" class="heart outline like icon" (click)="likePhoto()"></i>
+          <i *ngIf="liked==true" class="heart red like icon" (click)="likePhoto()"></i>-->
+          <mat-icon (click)="deletePhoto(item.id)" >delete</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="extra content" style="margin:0px;padding:0px;;margin-bottom:0px;padding-bottom:0px;">
+     <div class="control" *ngIf="editorEnabled==true">
+        <textarea *ngIf="editorEnabled==true" class="textarea" [(ngModel)]="description" (click)="enabledEdit()"  cols="1" rows="1" placeholder="Description..." style="font-size: 14px;"></textarea>
+    </div>
+
+     <div   style="background-color: white;border-style: none;cursor:hand;cursor:pointer;margin-bottom:10px;padding-bottom:10px;"
+          *ngIf="description==''" (click)="clickEditClicked()"  >
+        <i (click)="clickEditClicked()"  class="right floated edit icon" style="padding-top:10p;padding-bottom:20px;"></i> 
+     </div>
+
+     <div  class="ui message"  style="background-color: white;border-style: none;cursor:hand;cursor:pointer;margin-bottom:0px;padding-bottom:0px;"
+        *ngIf="editClicked==false && description!=''" (click)="clickEditClicked()"  >
+
+        <i (click)="clickEditClicked()" class="right floated edit icon"></i> 
+        <p *ngIf="description!=''" style="padding-bottom:10px;">{{description}}</p>
+      </div>
+
+      <success *ngIf="isSuccess==true" [message]="successMessage"></success>
+      <loader *ngIf="isSaving==true" [message]="savingMessage"></loader>
+
+      <!--<div *ngIf="isEdited==true" style="padding-top:10px;padding-bottom:10px;padding-left:10px;">
+        <button  class="mini ui secondary button" (click)="postData()" *ngIf="isEdited==true">
+          {{'save'|in18}}
+        </button>
+        <button class="mini ui button" (click)="cancelPost()" *ngIf="isEdited==true" >
+          {{'cancel'|in18}}
+        </button>
+      </div>-->
+        <div class="field is-horizontal" *ngIf="isEdited==true">
+          <div class="button-section">
+            
+            <button class="button-cancel" (click)="cancelPost()">
+              {{'cancel'|in18}}
+            </button>&nbsp;&nbsp;
+            <button class="button-save" (click)="postData()">
+              {{'save'|in18}}
+            </button> 
+
+          </div>
+        </div>
+  </div>
+</div>
+</div>
+
+
+
+
+  <!--<popup  #modal1>
+    
+    <div class="app-modal-body">
+      <share [type]="type" [object]="item"></share>
+    </div>
+
+  </popup>-->

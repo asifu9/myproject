@@ -1,0 +1,37 @@
+<br>
+<div class="content">
+  <span class="header-block">{{this.albumInfo?.name}}</span>
+  <p class="header-description">{{this.albumInfo?.description}}</p>
+</div>
+<div class="file has-name is-fullwidth">
+  <div class="columns">
+    <div class="column is-3">
+      <label class="file-label" *ngIf="session.isActivityExists('album','uploadphotos')">
+    <input type="file" [multiple]="multiple" (change)="updaetList()" style="display: none;" class="file-input" #fileInput>
+    
+    <span class="file-cta">
+      <span class="file-label">
+       <i class="upload icon"></i><span class="image-upload-text">{{'chooseImageToUpload'|in18}}</span>
+      </span>
+    </span>
+    
+  </label>
+    </div>
+    <div class="column">
+      <span class="file-name">
+      <div *ngFor="let p of selectedPhotos; let i = index">
+             {{i+1}} : {{p}}
+       </div>
+    </span>
+    </div>
+  </div>
+</div>
+<div>
+  <button class="button-upload" *ngIf="session.isActivityExists('album','uploadphotos')" (click)="uploadImages()" >{{'upload'|in18}}</button>
+</div>
+<br>
+<div class="ui grid container">
+
+  <div *ngFor="let item of photos" style="padding-top:20px;">
+    <photoitem (deleteEvent)="refreshMe($event)" [item]="item"></photoitem>
+  </div>

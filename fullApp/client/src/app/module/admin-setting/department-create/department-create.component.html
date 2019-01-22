@@ -1,0 +1,27 @@
+
+<span class="headling-style-admin">{{header}}</span>
+<br>
+
+<form *ngIf="department" [formGroup]="departForm" novalidate>
+  <div >
+    <div class="input-field">
+     
+        <input  type="text" size="50" placeholder="Department Name" formControlName="name">
+       <label> {{'name'|in18}}</label>
+    </div>
+
+<div class="ui divider"></div>
+  <div class="field is-horizontal">
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+        </div>
+      </div>
+ </div>
+</form> 

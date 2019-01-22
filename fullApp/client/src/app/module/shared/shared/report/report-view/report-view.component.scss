@@ -1,0 +1,18 @@
+table tr td {
+    background-color:white;
+    padding:5px;
+    border-color:gray;
+    border-style: inset;
+    border-width: 1px;
+}
+
+table thead td {
+    background-color:black;
+    color:white;
+    font-weight: bold;
+    font-size: 14px;
+    padding:5px;
+    border-color: white;
+    border-style: ridge;
+    border-width: 1px;
+}

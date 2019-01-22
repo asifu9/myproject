@@ -1,0 +1,35 @@
+.likeStyle{
+    color:grey;
+    font-size: 14px;
+    font-family: serif;
+    background-color:white;
+
+}
+.likeStyle:hover{
+    color:darkgreen;
+    font-weight: bold;
+    cursor: pointer; cursor: hand;
+}
+.likeStyleactive{
+    color:darkgreen;
+    font-weight: bold;
+    cursor: pointer; cursor: hand;
+    background-color:white;
+    font-size: 14px;
+    font-family: serif;
+}
+.active{
+    color:darkgreen;
+}
+.inactive{
+    color:grey;
+}
+.likeStyleDateTime{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 12px;
+    background-color:white;
+}
+.media{
+    border-top: none;
+    border-bottom: none;
+}

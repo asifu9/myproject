@@ -1,0 +1,10 @@
+
+<p mat-dialog-title>{{'deleteConfirmation'|in18}}</p>
+<mat-dialog-content>{{'deleteWarning'|in18}}</mat-dialog-content>
+<div style="text-align: center;">
+<mat-dialog-actions style="float: right;">
+
+  <button mat-raised-button mat-dialog-close>{{'cancel'|in18}}</button>
+  <button mat-raised-button (click)="yesClicked()">{{'yes'|in18}}</button>
+</mat-dialog-actions>
+</div>

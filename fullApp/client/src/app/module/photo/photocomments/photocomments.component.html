@@ -1,0 +1,32 @@
+
+
+
+
+<article class="media" style="margin-top:0px;padding-top:4px;">
+  <figure class="media-left">
+    <p >
+      <img src="{{photo1}}" style="width:50px;height: 50px;">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="field">
+      <div class="control contentStyle">
+        <textarea class="textarea contentStyle" [(ngModel)]="postComment.comment" style="width:20px;font-size:14px;" placeholder="{{'addAComment'|in18}}" rows="1"></textarea>
+      
+                
+            <button class="small ui teal right floated button" style="margin-bottom:5px;margin-top:5px;font-size:14px;font-weight: bold;color:white;" (click)="postCommentCreate()">
+                {{'post'|in18}}
+              </button>
+          
+      </div>
+       
+    </div>
+   
+  </div>
+</article>
+  
+
+
+  <div  *ngFor="let item of (post?.commentCount?.comments ? post?.commentCount?.comments:[])">
+        <comment [com]="item" [feedId]="post.id" [user]="user"></comment>
+  </div>

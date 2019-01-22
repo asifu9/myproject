@@ -1,0 +1,107 @@
+<div *ngIf="leaveApply">
+  <div class="columns">
+    <div class="column is-8">
+      <table>
+        <tr class="link-button-section">
+          <td>
+            <span *ngIf="leaveApply.status!=='Approved'">Approve/Reject Leave</span>
+            <span *ngIf="leaveApply.status==='Approved'"> This Leave has been Approved!! <i class="check circle outline icon green"></i></span>
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+  <table class="ui very compact definition table" style="width: 500px;">
+    <tr>
+      <td>
+        <span class="contentHeaderStyle"> Leave Type:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{leaveApply.leaveName}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle">Leave Description:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{leaveApply.description}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle">Leave Applied By:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{leaveApply?.user?.name}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle">Leave days:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{leaveApply.days}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle"> Leave Start Date:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{getDate(leaveApply.startDate)}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle">Leave End Date:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black">{{getDate(leaveApply.endDate)}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="contentHeaderStyle">Leave Status:</span>
+      </td>
+      <td>
+        <span class="album-description" style="color:black"> {{leaveApply.status}}</span>
+      </td>
+    </tr>
+
+  </table>
+  <div class="ui comments">
+    <h3 class="ui dividing header">Comments</h3>
+    <div class="comment" *ngFor="let c of leaveApply.comments">
+      <a class="avatar">
+      <img src="{{getPath(c.commentedByUser)}}">
+    </a>
+      <div class="content">
+        <a class="author">{{c?.commentedByUser?.name}}</a>
+        <div class="metadata">
+          <span class="date">Today at 5:42PM</span>
+        </div>
+        <div class="text">
+          {{c.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="leaveApply.status!=='Approved'">
+    <div class="input-field">
+      <textarea class="normalBorderStyle" (change)="okCool($event.target.value)" placeholder="Comments..." [(ngModel)]="comment">
+      </textarea>
+      <div class="errorStyle" style="font-size: 15px;">
+        {{errorMessage}}
+      </div>
+      <label>Comments<span *ngIf="required" ></span> </label>
+    </div>
+    <button (click)="rejectLeave()">Reject</button><button (click)="approveLeave()">Approve</button>
+  </div>
+</div>

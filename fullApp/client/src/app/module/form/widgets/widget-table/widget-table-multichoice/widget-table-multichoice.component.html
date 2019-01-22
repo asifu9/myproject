@@ -1,0 +1,16 @@
+<div class="ui form">
+
+  <div class="inline field addTopSpace">
+    <label  *ngIf="showHeader">{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+    <div *ngIf="options" [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'">
+      <div *ngFor="let item of options">
+        {{item.displayValue}}
+        <input type="radio" name="item.widgetName" [disabled]="disabledValue" (change)="textBoxChanged($event)" [checked]="updateValue(item.storedValue)"
+          [value]="item.storedValue">
+      </div>
+      <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+    </div>
+  </div>
+</div>

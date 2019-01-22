@@ -1,0 +1,37 @@
+<div class="ui card" style="width:98%;border:none;">
+  <div class="content">
+    <i class="close icon" style="float:right;" (click)="onClose()"></i>
+    <div class="right floated meta">{{photo?.createdOnStr}}</div>
+    <img class="ui avatar image" src="{{user?.photo?.displayPath}}">{{user?.name}}
+  </div>
+
+  <div class="content" style="padding:4px;margin:0px;">
+    <span class="right floated">
+       <i *ngIf="liked==false" class="heart outline like icon" (click)="likePhoto()"></i>
+          <i *ngIf="liked==true" class="heart red like icon" (click)="likePhoto()"></i>
+     
+      {{likes?.count}} likes
+    </span>
+    <i class="comment icon"></i> {{comments?.count}} {{'comments'|in18}}
+  </div>
+  <div class="extra content" style="padding:4px;margin:0px;">
+    <textarea class="textarea contentStyle" [(ngModel)]="photoComment.comment" style="width:20px;font-size:14px;" placeholder="{{'addAComment'|in18}}"
+      rows="1"></textarea>
+
+      <div style="height: 5px;"></div>
+    <button class="button is-primary" style="float: right;" (click)="photoCommentCreate()"> {{'comment'|in18}}</button>
+  </div>
+  <div  style="height: 480px;overflow: auto;border: 0;" >
+
+    <div *ngFor="let item of (comments?.comments?comments.comments:[])">
+      <photocomment [com]="item" [photoId]="photoId" [user]="user"></photocomment>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--<div id="messageSection" class="messageLayout">
+  messaages
+</div>-->

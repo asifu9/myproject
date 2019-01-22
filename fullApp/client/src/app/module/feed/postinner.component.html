@@ -1,0 +1,26 @@
+<article class="media" >
+  <figure class="media-left">
+    <p >
+      <img class="ui medium rounded image" src="{{path1}}" style="width:50px;height:50px;" >
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <div>
+        <span class="NameStyle">{{session.users[post?.createdBy]?.name}}</span>
+        
+        <figure *ngIf="post?.feedType=='PHOTO'" class="image is-square">
+          <img src="{{path}}/{{post?.photo?.createdBy}}/{{post?.photo?.albumId}}/{{post?.photo?.path}}" >
+        </figure>
+        <div *ngIf="post?.feedType=='WALL_PHOTO'">
+           <postshow [post]="post" [imgSize]="imgSize"></postshow>
+        </div>
+       <span class="contentStyle"> {{post?.description}} </span>
+     
+       </div>
+      </div>
+    </div>
+    <nav class="level is-mobile" style="margin-right:0px;padding-right:0px;">
+    </nav>
+</article>
+

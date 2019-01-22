@@ -1,0 +1,47 @@
+
+.imgA1 {
+  width:100%;
+  height:300px;
+  z-index: 1;
+}
+#mainImg{
+    height: 450px;
+}
+#imgB1 {
+    float: right;
+  padding-right:10px;
+
+
+  margin-top:-100px;
+
+ 
+  z-index: 4;
+   position: relative;
+}
+#imgB12{
+    float: right;
+  
+
+
+  margin-top:-100px;
+  margin-right:-37px;
+ 
+  z-index: 4;
+   position: relative;
+}
+.NameStyle{
+    text-align: right;
+}
+.NameBoldStyle{
+    color:white;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-right: 20px; 
+    
+}
+#editImageId{
+     z-index: 4;
+   position: relative;
+    margin-top:-100px;
+}

@@ -1,0 +1,69 @@
+<span class="header-block">{{header|in18}}</span>
+<br>
+<form [formGroup]="createLeaveForm" novalidate>
+  <div>
+    <div *ngIf="leaveTypes && leaveTypes.leaves" class="input-field">
+      <label>{{'leaveType'|in18}} </label>
+      <mat-select placeholder="{{'selectLeaveType'|in18}}" formControlName="leaveName">
+        <mat-option *ngFor="let i of leaveTypes.leaves" [value]="i.leaveName">
+          {{i.leaveName}}
+        </mat-option>
+      </mat-select>
+
+    </div>
+
+    <div class="input-field">
+
+      <textarea type="text" placeholder="{{'descriptionPalceholder'|in18}}" formControlName="description"></textarea>
+      <label>{{'description'|in18}} </label>
+    </div>
+    <div class="input-field">
+
+      <input type="checkbox" placeholder="" (change)="toggle()" formControlName="halfDay">
+      <label>{{'halfDay'|in18}} </label>
+    </div>
+
+    <div class="input-field">
+      <!--<input [matDatepicker]="myDatepicker" (onSelect)="changeMe($event)" formControlName="startDate">-->
+      <!--<mat-datepicker #myDatepicker></mat-datepicker>-->
+
+      <label>{{'startDate'|in18}}</label>
+      <input style="width:100px;" (dateChange)="changeMe($event)" readonly matInput [matDatepicker]="picker" placeholder="{{'startDate'|in18}}"
+        formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <div class="input-field" *ngIf="!isHalfDay">
+
+
+      <label>{{'endDate'|in18}}</label>
+
+      <input style="width:100px;" (dateChange)="changeMe($event)" readonly matInput [matDatepicker]="picker" placeholder="{{'endDate'|in18}}"
+        formControlName="endDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+
+
+
+    <div class="input-field">
+
+      <input type="text" readonly placeholder="{{'totalDays'|in18}}" formControlName="days">
+      <label>{{'totalDays'|in18}} </label>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button *ngIf="editEnabled" class="button-save" (click)="createUpdate()">
+          {{'save'|in18}}
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</form>

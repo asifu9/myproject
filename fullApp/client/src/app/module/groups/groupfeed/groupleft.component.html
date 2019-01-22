@@ -1,0 +1,176 @@
+
+<div class="columns addPadding">
+  <div class="column is-narrow">
+
+
+    <div class="card borderless changeBackGroundColor">
+      <div class="card-image">
+        <figure class="image is-4by3">
+           <img src="{{profilePhotoPath}}">
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4">{{group?.name}}</p>
+            <p class="subtitle is-6">Created in {{group?.createdOnStr}}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          Kristy is an art director living in New York,
+          <br>
+          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+          <br>
+          <br>
+          <div class="extra content">
+            <a *ngIf="status=='join'" class="ui large button primary" (click)="joinMe()">
+                <span> Join  Group</span>
+            </a>
+            <a *ngIf="status=='waiting'" >
+                <span>Waiting...</span>
+            </a>
+            <a *ngIf="status=='member'" >
+                <span>Member,  {{statusOn}}</span>
+            </a>
+            <a *ngIf="status=='owner'" >
+                <span>Owner of this Group</span>
+            </a>
+            <!-- like/dislike section -->
+            <div *ngIf="liked" class="ui label likeStyleactive" (click)="likeThisGroup()"><i class="like icon medium"></i>{{group?.likesCount}}</div>
+            <div *ngIf="!liked" class="ui label likeStyle" (click)="likeThisGroup()"><i class="like icon medium"></i>{{group?.likesCount}}</div>
+          </div>
+          <div class="columns">
+            <div class="column lineSeperatorLeft">
+              Friends <span class="tag"> {{user?.friendsCount}}</span> <span class="dividerStyle">|</span> <span class="tag">{{user?.followCount}}</span>              Followers
+            </div>
+            <i class="user icon"></i>
+            {{group?.memberCount}} Members
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+
+
+    <div class="card borderless changeBackGroundColor">
+      <div class="ui vertical text menu addSpaceAndStyle">
+       
+        <a class="active item" [routerLink]="['feed']" style="font-family: 20px;">
+            <i class="home icon"></i> <span class="mylink"> Feeds </span>
+          </a>
+              <a class="item" [routerLink]="['members']">
+            <i class="mail icon"></i> <span class="mylink">Members</span>
+          </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+
+
+<popup #modal2>
+  <div class="app-modal-body">
+    <h1>Change profile picture...</h1>
+    <!--<fileUpload [user]="user"></fileUpload>-->
+    <div #container></div>
+  </div>
+</popup>
+
+
+<!--end of new code here -->
+
+
+
+
+
+<!--
+
+<div style="padding-top:70px;"></div>
+<div class="columns">
+  <div class="column is-one-quarter" style="margin-right:0px;padding-left:0px;width:20%;">
+    <div class="ui borderless card" style="margin-right:0px;padding-right:0px;">
+      <div class="image" (click)="updateMe()">
+        <img src="{{profilePhotoPath}}">
+      </div>
+      <div class="content">
+        <a class="header">{{group?.name}}</a>
+        <div class="meta">
+          <span class="date">Created in {{group?.createdOnStr}}</span>
+        </div>
+        <div class="description">
+          Kristy is an art director living in New York.
+        </div>
+      </div>
+      <div class="extra content">
+         <a *ngIf="status=='join'" class="ui large button primary" (click)="joinMe()">
+            <span> Join  Group</span>
+        </a>
+        <a *ngIf="status=='waiting'" >
+            <span>Waiting...</span>
+        </a>
+         <a *ngIf="status=='member'" >
+            <span>Member,  {{statusOn}}</span>
+        </a>
+        <a *ngIf="status=='owner'" >
+            <span>Owner of this Group</span>
+        </a>
+        <!-- like/dislike section
+         <div *ngIf="liked" class="ui label likeStyleactive" (click)="likeThisGroup()"><i class="like icon medium"></i>{{group?.likesCount}}</div>
+        <div *ngIf="!liked" class="ui label likeStyle" (click)="likeThisGroup()"><i class="like icon medium"></i>{{group?.likesCount}}</div>
+      </div>
+      <div class="extra content">
+       
+        <a>
+            <i class="user icon"></i>
+            {{group?.memberCount}} Members
+          </a>
+        <br>
+
+      </div>
+    </div>
+    <div class="box">
+    <div class="ui vertical text menu">
+       <div class="header item">Sort By</div>
+      <a class="active item" [routerLink]="['feed']" style="font-family: 20px;">
+    <i class="home icon"></i> <span class="mylink"> Feeds </span>
+  </a>
+      <a class="item" [routerLink]="['members']">
+    <i class="mail icon"></i> <span class="mylink">Members</span>
+  </a>-->
+      <!--<a class="item" [routerLink]="['/messages']">
+    <i class="user icon"></i><span class="mylink"> Messages</span>
+  </a>
+      <a class="item" [routerLink]="['/groups']">
+    <i class="users icon"></i><span class="mylink"> Groups</span>
+  </a>
+      <a class="item" [routerLink]="['/users']">
+    <i class="user icon"></i><span class="mylink"> Users</span>
+  </a>-->
+
+    <!--</div>
+    </div>
+
+  </div>-->
+
+  <!--<div class="twelve wide column" style="margin-top:0px;margin-left:0px;background-color: #443344;">-->
+  <!--<div class="column is-half" style="margin-left: 0px;margin-right: 0px;padding-right:0px;padding-left:0px;">
+
+    <router-outlet ></router-outlet>
+
+  </div>
+</div>-->

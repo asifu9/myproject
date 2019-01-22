@@ -1,0 +1,12 @@
+  <div (click)="onContainerClicked($event)"  (someEvent)="onContainerClicked($event)" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+       [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog" style="width:auto;max-width:100%;">
+      <div class="modal-content" style="width:auto;max-width:87%;align-content: center;overflow: hidden;" >
+
+        <div class="modal-body" style="width:auto;max-width:100%;margin:1px;padding:1px;">
+          <ng-content select=".app-modal-body"></ng-content>
+        </div>
+   
+      </div>
+    </div>
+  </div>

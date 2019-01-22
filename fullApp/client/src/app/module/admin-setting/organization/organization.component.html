@@ -1,0 +1,59 @@
+<!--<div class="columns" style="float:left;">{{isExapnded}}
+  <div class="row">
+    <div class="column is-12">
+      <a class="button" [routerLink]="['create']" (click)="setExpandSize()">Create New</a>
+    </div>
+  </div>
+</div>-->
+<table class="tableStyle">
+  <tr>
+    <td  style="float:right;">
+        <div class="column is-10"  *ngIf="this.adminService.showOrgCreateButton" style="width:100%;padding-right:24px;">
+          <a class="button" [routerLink]="['create']" *ngIf="session.isActivityExists('organization','createorganization')" (click)="setExpandSize()">Create New</a>
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <div class="columns" style="width:100%;">
+          <div [ngClass]="{'column is-12': this.adminService.isOrgExapnded, 'column is-8': this.adminService.isOrgExapnded}">
+            <table class="ui table">
+              <thead>
+                <tr>
+                  <th class="five wide">Org Name</th>
+                  <th class="four wide">location</th>
+                  <th class="five wide">Parent Org</th>
+                  <th class="two wide">Action <span (click)="toggleSize()">>></span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let org of this.adminService.orgList">
+                  <td><a href="#">{{org.orgName}}</a></td>
+                  <td>{{org.locationId}}</td>
+                  <td>{{org?.parent?.orgName}}</td>
+                  <td>
+                    <div class="dropdown">
+                      <button class="dropbtn" ><span class="icon"><i class=" large setting icon"></i></span>
+        </button>
+                      <div class="dropdown-content" >
+                        <a href="#" *ngIf="session.isActivityExists('organization','editorganization')"  [routerLink]="['/admin/setting/organization/update/',org.id]">Update</a>
+                        <a href="#" *ngIf="session.isActivityExists('organization','createorganization')" [routerLink]="['/admin/setting/organization/child/',org.id]">Create Child</a>
+                        <a href="#" *ngIf="session.isActivityExists('organization','deleteorganization')">Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="column">
+            <div>
+              <router-outlet  ></router-outlet>
+            </div>
+            <!--<app-organization-create [showForm]="showForm" (updateParent)="updateList($event)" [status]="status" [selectedOrg]="selectedOrg"></app-organization-create>-->
+          </div>
+        </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,42 @@
+<div class="columns">
+    <div class="column is-8" >
+        <div class=" box backgroundColorGray" *ngIf="session.isActivityExists('feed','postfeed')">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="feedPoster" class="textarea textBoxStyle" rows="2" [(ngModel)]="feed.description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" *ngIf="session.isActivityExists('feed','feedPhotoUpload')" [multiple]="multiple" (change)="updaetList()" class="file-input" #fileInput>
+                    </td>
+                
+                    <td>
+                         <div class="dropdown">
+                      <button class="dropbtn" ><span class="icon"><i class=" large setting icon"></i></span>
+                        </button>
+                        <div class="dropdown-content" >
+                            <ul >
+                                <li *ngFor="let item of this.myMap">
+                                   {{item.key}} <input type="checkbox" [(ngModel)]="item.value"   [checked]="item.value">
+                                </li>
+                            </ul> 
+                        </div>
+                        </div>
+
+                        <button class="ui primary right floated button" style="font-size:14px;" (click)="savePost()">
+                            {{'post'|in18}}
+                      </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <feedlist [posts]="feeds" [user]="user"></feedlist>
+    </div>
+    <div class="column is-4" style="margin-top:20px;">
+        <div class="box peopleStyleSection">
+            <peoples></peoples>
+        </div>
+    </div>
+</div>

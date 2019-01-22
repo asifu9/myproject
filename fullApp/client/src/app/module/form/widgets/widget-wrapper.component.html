@@ -1,0 +1,50 @@
+<div *ngIf="form && data" class="formWidth">
+  <div class="wrapper">
+    <ul *ngFor="let w of form.metaData" [ngSwitch]="w.widgetType">
+      <li *ngSwitchCase="'InputField'">
+        <app-widget-inputfield [widget]="w" [data]="data" [mode]="mode"></app-widget-inputfield>
+      </li>
+      <li *ngSwitchCase="'DateTime'">
+        <app-widget-date [widget]="w" [data]="data" [mode]="mode"></app-widget-date>
+      </li>
+      <li *ngSwitchCase="'Checkbox'">
+        <app-widget-checkbox [widget]="w" [data]="data" [mode]="mode"></app-widget-checkbox>
+      </li>
+      <li *ngSwitchCase="'Dropdown'">
+        <app-widget-dropdown [widget]="w" [data]="data" [mode]="mode"></app-widget-dropdown>
+      </li>
+      <li *ngSwitchCase="'Multichoice'">
+        <app-widget-multichoice [widget]="w" [data]="data" [mode]="mode"></app-widget-multichoice>
+      </li>
+      <li *ngSwitchCase="'List'">
+        <app-widget-list [widget]="w" [data]="data" [mode]="mode"></app-widget-list>
+      </li>
+      <li *ngSwitchCase="'TextArea'">
+        <app-widget-textarea [widget]="w" [data]="data" [mode]="mode"></app-widget-textarea>
+      </li>
+      <li *ngSwitchCase="'Select'">
+        <app-widget-select [widget]="w" [data]="data" [mode]="mode"></app-widget-select>
+      </li>
+      <li *ngSwitchCase="'Attachment'">
+        <app-widget-attach [widget]="w" [data]="data" [mode]="mode" [formName]="form.name"></app-widget-attach>
+      </li>
+      <li *ngSwitchCase="'Table'">
+        <app-widget-table [widget]="w" [data]="data" [mode]="mode"></app-widget-table>
+      </li>
+
+    </ul>
+
+
+    <br>
+  </div>
+  <div class="ui divider"></div>
+  <div class="field is-horizontal">
+    <div class="button-section">
+      <button [disabled]="isFormValid" class="button-cancel" (click)="cancelOperation()">{{'cancel'|in18}}</button>      &nbsp;&nbsp;
+      <button [disabled]="isFormValid" class="button-save" *ngIf="mode && mode=='1'" (click)="saveState()">{{'save'|in18}}</button>      &nbsp;&nbsp;
+      <button [disabled]="isFormValid" class="button-save" *ngIf="mode && mode=='2'" (click)="updateState()">{{'update'|in18}}</button>
+    </div>
+  </div>
+
+
+</div>

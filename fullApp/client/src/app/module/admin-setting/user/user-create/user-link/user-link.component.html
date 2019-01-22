@@ -1,0 +1,59 @@
+<app-user-header [user]="user" [current]="'link'" [userId]="userId"></app-user-header>
+<div class="ui cards">
+
+  <div class="card">
+    <div class="content">
+      <div class="header">{{'department'|in18}}</div>
+      <div class="description">
+        <label *ngIf="showEditDepartment"> {{userLinkInfo?.department?.name}}<i (click)="editDepartment()" class="edit icon"></i></label>
+        <div *ngIf="!showEditDepartment">
+          <select class='select-option' required (change)='onDepartmentSelected($event.target.value)'>
+              <option class='option' *ngFor='let option of departList' [selected]="option.id==userLinkInfo?.departmentId" [value]="option.id">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card">
+    <div class="content">
+      <div class="header">{{'designation'|in18}}</div>
+      <div class="description">
+        <label *ngIf="showEditDesignation"> {{userLinkInfo?.designation?.designationName}}<i (click)="editDesignation()" class="edit icon"></i></label>
+        <div *ngIf="!showEditDesignation">
+          <select class='select-option' required (change)='onDesignationSelected($event.target.value)'>
+              <option class='option' *ngFor='let option1 of desgList' [selected]="option1.id==userLinkInfo?.designationId" [value]="option1.id">{{option1.designationName}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card">
+    <div class="content">
+      <div class="header">{{'team'|in18}}</div>
+      <div class="description">
+        <label *ngIf="showEditTeam"> {{userLinkInfo?.team?.name}}<i (click)="editTeam()" class="edit icon"></i></label>
+        <div *ngIf="!showEditTeam">
+          <select class='select-option' required (change)='onTeamSelected($event.target.value)'>
+              <option class='option' *ngFor='let option of teamList' [selected]="option.id==userLinkInfo?.teamId" [value]="option.id">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <div class="card">
+    <div class="content">
+      <div class="header">{{'manager'|in18}}</div>
+      <div class="description">
+        <label *ngIf="showEditManager"> {{userLinkInfo?.manager?.name}}<i (click)="editManager()" class="edit icon"></i></label>
+        <div *ngIf="!showEditManager">
+          <select class='select-option' required (change)='onManagerSelected($event.target.value)'>
+              <option class='option' *ngFor='let option of userList' [selected]="option.id==userLinkInfo?.managerId" [value]="option.id">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

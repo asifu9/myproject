@@ -1,0 +1,8 @@
+
+
+<div class="container-flex">
+
+
+  <app-report-data [header]="'roles'" [createURL]="'create'" [updateURL]="'update'" (createEventEmitter)='showCreate($event)'  (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" [meta]="meta" [data]="roles"></app-report-data>
+
+</div>

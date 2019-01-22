@@ -1,0 +1,29 @@
+<div class="ui pointing menu">
+  <a class="item" [ngClass]="{'active':current==='basic'}"  [routerLink]="['/admin/user/details/basic/',userId]">
+    {{'basic'|in18}}
+  </a>
+  <a class="item" [ngClass]="{'active':current==='photo'}" [routerLink]="['/admin/user/details/photo/',userId]">
+    {{'photo'|in18}}
+  </a>
+  <a class="item" [ngClass]="{'active':current==='link'}"  [routerLink]="['/admin/user/details/link/',userId]">
+    {{'links'|in18}}
+  </a>
+    <a class="item" [ngClass]="{'active':current==='mapuseraction'}" [routerLink]="['/admin/user/details/mapuseraction/',userId]">
+    {{'mapActions'|in18}}
+  </a>
+   <a class="item" [ngClass]="{'active':current==='credential'}"  [routerLink]="['/admin/user/details/credential/',userId]">
+    {{'credential'|in18}}
+  </a>
+    <a class="item" [ngClass]="{'active':current==='roles'}"  [routerLink]="['/admin/user/details/roles/',userId]">
+    {{'roles'|in18}}
+  </a>
+  
+  <div class="right menu">
+    <div class="item">
+      <div class="ui transparent icon">
+        {{user?.name}}
+      </div>
+    </div>
+  </div>
+</div>
+<br>

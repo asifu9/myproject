@@ -1,0 +1,2 @@
+
+<app-report-data [header]="'designation'" [updateURL]="'update'" [createURL]="'create'" (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" (createEventEmitter)='showCreate($event)' [meta]="meta" [data]="this.adminService?.desgList"></app-report-data>

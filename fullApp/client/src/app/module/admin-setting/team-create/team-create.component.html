@@ -1,0 +1,26 @@
+
+<span class="headling-style-admin">{{header}}</span>
+<br>
+
+<form *ngIf="team" [formGroup]="teamForm" novalidate>
+  <div >
+    <div class="input-field">
+      <label >Name</label>
+        <input type="text" size="50" placeholder="Team Name" formControlName="name">
+    </div>
+
+ <div class="ui divider"></div>
+  <div class="field is-horizontal">
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          Cancel
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+        </div>
+      </div>
+ </div>
+</form> 

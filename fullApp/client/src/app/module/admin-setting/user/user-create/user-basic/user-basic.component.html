@@ -1,0 +1,73 @@
+<app-user-header [user]="user" [current]="'basic'" [userId]="userId"></app-user-header>
+<div class="input-field">
+  value is {{selectedYear}}
+  <select name="selectedYear" [(ngModel)]="selectedYear">
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+    </select>
+
+  <label>Name </label>
+  <button (click)="generateLeaves()">Generate Leaves</button>
+</div>
+<form [formGroup]="userForm" novalidate>
+  <div>
+
+
+    <div class="input-field">
+
+      <input type="text" placeholder="{{'name'|in18}}" formControlName="name">
+      <label>{{'name'|in18}} </label>
+    </div>
+
+    <div class="input-field">
+
+      <label>{{'dob'|in18}}</label>
+
+      <input style="width:120px;" readonly matInput [matDatepicker]="picker" placeholder="{{'chooseDate'|in18}}" formControlName="dob">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+    </div>
+
+    <div class="input-field">
+
+      <label>{{'doj'|in18}}</label>
+
+      <input style="width:120px;" readonly matInput [matDatepicker]="picker1" placeholder="{{'chooseDate'|in18}}" formControlName="doj">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+
+    </div>
+
+
+    <div class="input-field">
+
+      <input type="text" placeholder="{{'primaryContact'|in18}}" formControlName="primaryContact">
+      <label>{{'primaryContact'|in18}}</label>
+    </div>
+    <div class="input-field">
+      <label>{{'secandaryContact'|in18}}</label>
+      <input type="text" placeholder="{{'secandaryContact'|in18}}" formControlName="secondaryContact">
+    </div>
+    <div class="input-field">
+      <label>{{'emailId'|in18}} </label>
+      <input type="email" placeholder="{{'emailId'|in18}}" formControlName="emailId">
+    </div>
+
+
+
+    <div class="ui divider"></div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{'save'|in18}}
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</form>

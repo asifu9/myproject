@@ -1,0 +1,53 @@
+<br> 
+ <table>
+   <tr>
+     <td>
+       User Details
+     </td>
+     <td style="text-align: right;">
+          <a class="active item" routerLink="/admin/company/usernew" style="font-size: 20px;">
+            <i class="plus icon"></i> New
+          </a>
+     </td>
+   </tr>
+ </table>
+ <div class="ui grid" style="margin-top: 0px;margin-left:0px;padding-top:0px;padding-left:0px;">
+  <div class="column" style="margin-top: 0px;margin-left:0px;padding-top:0px;padding-left:0px;">
+     <div style="width:100%; margin-top: 0px;margin-left:0px;padding-top:0px;padding-left:0px;" >
+ 
+        
+       
+        <table class="ui  celled table">
+        
+              <thead>
+                <tr>
+               
+                <th class="sorted descending">Name</th>
+                <th >DOB</th>
+                <th>Email</th>
+                <th >Primary Contact</th>
+                <th >Secondary Contact</th>
+                <th>Username</th>
+                
+              </tr>
+              </thead>
+              <tr *ngFor="let item of users">
+                 
+                  <td><a class="active item" routerLink="/admin/company/user/{{item.id}}">{{ item.name }}</a></td>
+                  <td>{{ item.dob | date:"MM/dd/yyyy" }}</td>
+                  <td>{{ item.dob | date:"MM/dd/yyyy" }}</td>
+                  <td>{{ item.primaryContact}}</td>
+                  <td>{{ item.secondaryContact}}</td>
+                  <td>{{item.userName}}</td>
+                  
+              </tr>
+        </table>
+        </div>
+  </div>
+
+</div>
+ 
+ 
+
+
+ 

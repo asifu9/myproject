@@ -1,0 +1,94 @@
+<div class="backgroundColorMain">
+  <span class="header-block">{{header}}</span>
+  <br>
+  <br>
+  <form [formGroup]="ticketForm" novalidate>
+    <div class="wrapper">
+      <div class="field" *ngIf="readOnly">
+        <label>Status</label>
+        <h5 class="ui block header" style="margin-top:0px;">
+          {{this.ticketService.tickeStatusMap[this.ticket.status]}}
+        </h5>
+      </div>
+      <div class="input-field">
+
+        <input class="input" type="text" size="50" required="" placeholder="Suject" formControlName="subject">
+        <label>{{'subject'|in18}}</label>
+      </div>
+      <div class="input-field">
+        <textarea rows="2" cols="5" placeholder="Description" formControlName="description"></textarea>
+        <label>{{'description'|in18}}</label>
+
+      </div>
+      <div class="input-field">
+
+        <div >
+
+
+          <mat-select formControlName="ticketCategoryId">
+              <mat-option  [value]="i.storedValue" *ngFor="let i of this.ticketService?.ticketPriority">{{i.displayValue}}</mat-option>
+            </mat-select>
+        </div>
+        <label>{{'priority'|in18}}</label>
+      </div>
+      <div class="input-field">
+
+        <span *ngIf="readOnly">
+          {{this.ticketService.ticketCategoryMap[this.ticket.ticketCategoryId]}}
+        </span>
+        <div *ngIf="!readOnly">
+
+
+            <mat-select formControlName="ticketCategoryId">
+              <mat-option (selectionChange)="clickedCategoryItem(i.storedValue)" [value]="i.storedValue" *ngFor="let i of this.ticketService?.ticketCategory">{{i.displayValue}}</mat-option>
+            </mat-select>
+        </div>
+
+        <label>{{'category'|in18}}</label>
+      </div>
+      <div class="ui segment">
+        <p>{{'notificationSetting'|in18}}</p>
+        <div class="ui segment">
+
+          <input type="checkbox" name="notifyToManager" formControlName="notifyToManager" style="color:black;padding-left:20px;">&nbsp;&nbsp;Notify
+          {{'manager'|in18}}
+        </div>
+      </div>
+       <div class="ui divider"></div>
+      <div class="field is-horizontal">
+        <div class="button-section">
+          <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+          <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="ui segment">
+    <div *ngFor="let att of ticket.attachments">
+      <a href="/assets/uploads/{{ticket.createdBy}}/{{ticket.id}}/{{att.path}}" target="_blank">{{att.path}}</a>
+    </div>
+    <br>
+    <div *ngIf="readOnly">
+      <label class="file-label">
+    <input type="file" [multiple]="multiple"  hidden class="file-input" #fileInput>
+    
+    <span class="file-cta">
+      <span class="file-icon">
+        <!--<i class="upload icon"></i>-->
+      </span>
+  
+    </span>
+    
+  </label>
+
+      <input type="button" value="Upload" class="ui tiny primary button " (click)="uploadImages()" />
+      <loader *ngIf="loading==true" [message]="savingMessage"></loader>
+    </div>
+  </div>
+</div>

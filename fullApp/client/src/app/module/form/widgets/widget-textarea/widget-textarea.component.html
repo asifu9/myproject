@@ -1,0 +1,15 @@
+<div *ngIf="widget">
+  <div >
+    <div class="input-field">
+      
+      <textarea [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" (change)="textBoxChanged($event)" [disabled]="disabledValue"
+        [placeholder]="placeholderValue" [(ngModel)]="textInput">
+ 
+      </textarea>
+      <label>{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+      <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+    </div>
+  </div>
+</div>

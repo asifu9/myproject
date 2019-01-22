@@ -1,0 +1,6 @@
+   <div class="comment-create">
+     <img *ngIf="showTextArea" [src]="getImage()" style="width:50px;height: 41px;"/>
+        <textarea *ngIf="showTextArea" (focus)="focusIn()" (focusout)="focusOut()" [(ngModel)]="textAreaData"></textarea>
+        <button *ngIf="showTextArea" (click)="postMe()">{{'submit'|in18}}</button>
+   </div>
+   

@@ -1,0 +1,17 @@
+<div class="ui form">
+
+  <div class="inline field addTopSpace">
+    <label  *ngIf="showHeader">{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+    <div *ngIf="widget">
+      <select class='select-option'  [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" 
+        [disabled]="disabledValue" [(ngModel)]="textInput"  (change)="textBoxChanged($event)" >
+              <option class='option' *ngFor="let item of widget.options" 
+              [selected]="textInput==item.storedValue" [value]="item?.storedValue">{{item?.displayValue}}</option>
+          </select>
+
+    </div>
+     <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div style="margin-top:50px;width:70%;margin-left:auto;margin-right:auto;">
+
+  <div id="mainImg">
+    <img class="imgA1" (mouseover)="showEditIcon()"  src="{{user?.backgroundPhoto?.displayPath}}">
+    <div  *ngIf="showEditImage==true" (click)="showProfilePicChange()" style="margin-top:-28px;"><i  class="big edit icon yellow"></i></div>
+    <div>
+      <img id="imgB1" class="ui  rounded  image" (mouseover)="showEditPersonalIcon()" src="{{user?.photo?.displayPath}}">
+      <div (mouseover)="showEditPersonalIcon()" *ngIf="showEditPersonalImage==true" (click)="showUserPicChange()" id="imgB12" ><i (mouseover)="showEditPersonalIcon()"  class="big edit icon yellow"></i></div>
+    </div>
+    <div style="background-color: black;width:100%;">
+      <div class="NameStyle">
+        <span class="NameBoldStyle">{{user?.name}}</span>
+      </div>
+      <div style="background-color:white;margin-left:4px;">
+        
+      <div class="columns">
+        <div class="column box" style="padding:5px;margin:0px;">
+             <i class="user icon"></i>
+            {{user?.friendsCount}} {{'friends'|in18}}
+        </div>
+         <div class="column box" style="padding:5px;margin:0px;">
+             <i class="forward icon"></i>
+            {{user?.followCount}} {{'followers'|in18}}
+        </div>
+         <div class="column box" style="padding:5px;margin:0px;">
+            <i class="forward icon"></i>
+            {{user?.followedByCount}} {{'followedBy'|in18}}
+        </div>
+    </div>
+        <div class="columns">
+        <div class="column box" style="padding:5px;margin:0px;">
+              <i class="group icon"></i>
+            {{user?.groupCount}} {{'groups'|in18}}
+        </div>
+         <div class="column box" style="padding:5px;margin:0px;">
+               <i class="group icon"></i>
+            {{user?.groupSubscriptionCount}} {{'subscribedGroups'|in18}}
+        </div>
+         <div class="column box" style="padding:5px;margin:0px;">
+        </div>
+    </div>
+           
+
+           
+ 
+            
+         
+          
+         
+         
+         
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui pointing menu">
+    <!--<a class="active item" (click)="showAddress()" id="addressItems">-->
+      <a class="active item" [routerLink]="['address']">
+    Address
+  </a>
+    <!--<a class="item" (click)="showProfession()" id="professionItems">-->
+      <a class="item" [routerLink]="['professional']">
+    Profession
+  </a>
+    <a class="item" [routerLink]="['eduction']" id="educationItems">
+    Education
+  </a>
+  </div>
+  <div class="ui segment">
+    <router-outlet></router-outlet>
+    <!--<div *ngIf="type==1" style="width:60%;margin-left:auto;margin-right:auto;">
+      <address [user]="user"></address>
+    </div>
+    <div *ngIf="type==2" style="width:60%;margin-left:auto;margin-right:auto;">
+      <profession></profession>
+    </div>
+    <div *ngIf="type==3" style="width:60%;margin-left:auto;margin-right:auto;">
+      <education></education>
+    </div>-->
+  </div>
+</div>
+
+<popup #imgUploader1>
+  <div class="app-modal-body">
+    <h1>Update image</h1>
+    <!--<fileUpload [user]="user"></fileUpload>-->
+    <div #container></div>
+  </div>
+</popup>

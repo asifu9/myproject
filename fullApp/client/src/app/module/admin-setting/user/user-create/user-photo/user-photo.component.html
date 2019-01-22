@@ -1,0 +1,8 @@
+<app-user-header [user]="user" [current]="'photo'" [userId]="userId"></app-user-header>
+<p>
+
+  <img class="ui medium rounded image" [src]="session.appendURL(user?.photoPath)">
+
+ <br>
+  <fileUpload [type]="'personal'" (uploadDone)="onChangeupload($event)" [user]="user" [userId]="user?.id"></fileUpload>
+</p>

@@ -1,0 +1,16 @@
+
+
+<div style="padding-top:25px;width:1000px;" >
+  <div class="columns" style="width:100%;">
+      <div class="column is-three-quarters">
+          <router-outlet></router-outlet>
+      </div>
+      <div class="column auto">
+          <!--<a href="/notification/request" >Request</a>
+          <a href="/notification/like" >Like</a>-->
+           <a [routerLink]="['/notification/request']">{{'request'|in18}}</a>
+           <br>
+            <a [routerLink]="['/notification/like']">{{'like'|in18}}</a>
+      </div>
+  </div>
+</div>

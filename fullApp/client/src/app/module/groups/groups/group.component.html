@@ -1,0 +1,41 @@
+
+ <div class="ten wide column" >
+<!--<div class="ui link cards">-->
+  <div class="ui card">
+    <div class="image" (click)="showGroup()">
+      <a ><img src="{{profilePhotoPath}}" style="width:300px;height:250px;"> </a>
+      <!--[routerLink]="['/group/',group.groupUniqueName]"-->
+    </div>
+    <div class="content">
+      <div class="albumHeading">{{group?.name}}</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="album-description">
+        {{group?.description}}
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated" style="padding-bottom:0px;padding-left:10px;">
+        <i class="wait icon"></i> <span class="header-description">{{group?.createdOnStr}}</span>
+      </span>
+      <span>
+        <i class="users icon"></i>
+        {{group?.memberCount}} Members
+      </span>
+    </div>
+    <div class="extra content">
+          <span class="right floated" style="padding-bottom:0px;padding-left:10px;">
+            <i class="large thumbs up icon"></i> {{group?.likesCount}}
+        </span>
+          <span class="right floated" style="padding-bottom:0px;padding-left:10px;">
+            <i class="comment icon"></i> {{group?.commentsCount}}
+        </span>
+        <span  >
+            <img class="ui avatar image" src="{{createdByPath}}" style="margin-left:-5px;">
+          {{group?.createdByUser?.name}}
+        </span>
+    </div>
+  </div>
+</div>
+  

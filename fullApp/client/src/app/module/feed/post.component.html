@@ -1,0 +1,72 @@
+<div class="box backgroundColor">
+  <article class="media">
+    <figure class="media-left">
+      <img src="{{path1}}" class="ui medium circular image" style="width:70px;height:70px;">
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <div>
+          <span class="NameStyle">{{postCreatedby?.name}}</span>
+
+          <div *ngIf="post?.feedType=='PHOTO'">
+            <img class="ui medium circular image" src="{{path}}/{{post?.photo?.createdBy}}/{{post?.photo?.albumId}}/{{post?.photo?.path}}">
+          </div>
+          <div *ngIf="post?.feedType=='WALL_PHOTO'">
+            <div *ngIf="post?.originalPostId==null">
+              <postshow [post]="post" [imgSize]="imgSize"></postshow>
+            </div>
+          </div>
+          <p class="contentStyle"> {{post?.description}} </p>
+        </div>
+
+        <div *ngIf="post?.originalPostId!==null" class="box">
+
+          <postinner [post]="post.originalPostIdObj" [user]="user"></postinner>
+        </div>
+      </div>
+      <nav class="level is-mobile" style="margin-right:0px;padding-right:0px;">
+        <div class="extra" style="width:100%;">
+          <div *ngIf="commented" class="ui label likeStyleactive" (click)="likePost()"><i class="like icon"></i>{{post?.likeCountObj?.count}}</div>
+          <div *ngIf="!commented" class="ui label likeStyle" (click)="likePost()"><i class="like icon"></i>{{post?.likeCountObj?.count}}</div>
+          <div class="ui label likeStyle"><i class="comment icon"></i>{{post?.commentCountObj?.count}}</div>
+          <div class="ui label likeStyle" *ngIf="session.isActivityExists('feed','feedshare')" (click)="shareMe()"><i class="share icon"></i>{{post?.shareCount}}</div>
+          <div class="ui label likeStyleDateTime"><i class="time icon"></i>{{post?.createdOnStr}}</div>
+
+
+          <br/>
+          <div class="columns">
+            <div class="column is-three-quarters" style="width:100%;">
+              <comments [post]="post" [user]="user"></comments>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <div class="dropdown" *ngIf="this.post?.createdBy==session?.shareObj['user']">
+        <button class="dropbtn"><span class="icon"><i class="large setting icon"></i></span>
+        </button>
+        <div class="dropdown-content">
+              <ul >
+                  <li *ngFor="let item of this.myMap">
+                      <table><tr><td style="width: 70%">{{item.key}}</td><td> <input type="checkbox" [(ngModel)]="item.value"   [checked]="item.value"></td>
+                      </tr></table>
+                  </li>
+              </ul> 
+              <button (click)="updateFeedSetting()">{{'update'|in18}}</button>
+        </div>
+      </div>
+
+      <button class="delete" *ngIf="session.isActivityExists('feed','deletefeed')"></button>
+    </div>
+  </article>
+</div>
+
+
+<popup (someEvent)="onContainerClicked()" #share1>
+  <div class="app-modal-body">
+
+    <!--<fileUpload [user]="user"></fileUpload>-->
+    <div #container style="margin-top:100px;"></div>
+  </div>
+</popup>

@@ -1,0 +1,81 @@
+.changeBackGroundColor{
+    background-color: white;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width:250px;
+}
+.addPadding{
+    padding-top:70px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.lineSeperatorLeft{
+   text-align: center;
+}
+.dividerStyle{
+  color:#fff;
+}
+.tag{
+    background-color: #59CAD6;
+    color:white;
+    font-size: 13px;
+    font-weight: bold;
+}
+.space{
+    height: 8px;
+}
+.addSpaceAndStyle{
+    padding-left:0px;
+    padding-top:  10px;
+    padding-bottom:  10px;
+    padding-right: 0px;
+    font-size: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    color:white;
+    width:100%!important;
+}
+.addSpaceAndStyle a {
+ padding-left: 20px !important;
+}
+.addSpaceAndStyle a:hover {
+    background-color: gray !important;
+    color:white !important;
+    font-size: bold !important;
+}
+.activeStyle{
+    background-color: gray !important;
+    color:white !important;
+    font-size: bold !important;
+}
+.titleNameStyle{
+    font-weight: bold;
+    font-size: 20px;
+    color:#ff6347;
+}
+.emailStyle{
+    font-weight: normal;
+    font-size: 15px;
+    color:gray;
+}
+mat-icon{
+    margin:0em 5px 0em 0em !important; 
+}
+a {
+      display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.content span {
+          display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+}

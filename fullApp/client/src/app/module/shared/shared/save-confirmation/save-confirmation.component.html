@@ -1,0 +1,21 @@
+<!--<p mat-dialog-title>{{title}}</p>-->
+<!--<div style="display: block;text-align: center;">-->
+
+<mat-dialog-content>
+
+  <table>
+    <tr>
+      <td style="width: 10%;">
+        <mat-icon style="color:green;font-size: 55px; text-align: center;padding-left: 0px;">check_box</mat-icon>
+      </td>
+      <td style="widows: 90%;padding-left: 15px;"><span class="successMessageStyle">{{message}}</span>
+      </td>
+    </tr>
+  </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions style="float: right;">
+
+  <button mat-raised-button mat-dialog-ok (click)="onNoClick()">{{'ok'|in18}}</button>
+</mat-dialog-actions>

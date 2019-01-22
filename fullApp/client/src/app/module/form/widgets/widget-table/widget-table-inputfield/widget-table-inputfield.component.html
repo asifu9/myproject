@@ -1,0 +1,17 @@
+
+  <div class="ui form">
+  <div [ngClass]="getCss()">
+    <label ><span *ngIf="showHeader">{{widget.widgetDisplayName|in18}} <span *ngIf="required" >*</span></span></label>
+<div *ngIf="widget">
+<input type="text" (change)="textBoxChanged($event)" [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'"  (keypress)="keyPress($event)" [disabled]="disabledValue"
+(blur)="onBlurMethod($event)"
+ [placeholder]="placeholderValue" [(ngModel)]="textInput">
+
+ 
+ <span *ngIf="!isWidgetValid" class="errorStyle" >{{errorMessage}}</span>
+ <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+</div>
+  </div>
+  </div>

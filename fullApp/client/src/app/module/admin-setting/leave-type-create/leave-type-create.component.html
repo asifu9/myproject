@@ -1,0 +1,58 @@
+<span class="headling-style-admin">{{header}}</span>
+<br>
+
+<form *ngIf="leaveType" [formGroup]="leavetypeForm" novalidate>
+  <div>
+    <div class="input-field">
+
+      <input type="text" size="50" placeholder="{{'name'|in18}}" formControlName="name">
+      <label>{{'name'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+      <textarea placeholder="{{'description'|in18}}" formControlName="description"></textarea>
+      <label>{{'description'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+      <input type="number" placeholder="{{'totalCount'|in18}}" formControlName="count">
+      <label>{{'totalCount'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+      <input type="checkbox" placeholder="{{'carryFarward'|in18}} " formControlName="carryFarward">
+      <label>{{'carryFarward'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+      <input type="number" placeholder="{{'carryFarwardLimit'|in18}} " formControlName="carryFarwardLimit">
+      <label>{{'carryFarwardLimit'|in18}}</label>
+    </div>
+    <div class="input-field">
+
+      <input type="text" placeholder="{{'assingType'|in18}} " formControlName="assingType">
+      <label>{{'assingType'|in18}}</label>
+    </div>
+  </div>
+  <div class="input-field">
+
+ <mat-select formControlName="gender">
+              <mat-option  value="male">{{'male'|in18}}</mat-option>
+              <mat-option  value="female">{{'female'|in18}}</mat-option>
+            </mat-select>
+
+
+    <label>{{'gender'|in18}}</label>
+  </div>
+  <div class="field is-horizontal">
+    <div class="button-section">
+      <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+      <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+    </div>
+  </div>
+</form>

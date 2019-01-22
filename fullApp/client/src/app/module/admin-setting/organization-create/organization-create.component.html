@@ -1,0 +1,39 @@
+
+<span class="header-block"> {{header}}</span>
+
+<br>
+<form *ngIf="selectedOrg" [formGroup]="orgForm" novalidate>
+  <div >
+    <div class="input-field">
+      
+        <input type="text" size="50" placeholder="Organization Name" formControlName="orgName">
+      <label >Name</label>
+    </div>
+    <div class="input-field">
+        <input  type="text" size="50" placeholder="Location" formControlName="locationId">
+      <label >Location</label>
+    </div>
+
+
+
+
+
+
+<div class="ui divider"></div>
+  <div class="field is-horizontal">
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          Cancel
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+
+        </div>
+      </div>
+
+
+
+  </div>
+</form>

@@ -1,0 +1,27 @@
+
+<div style="padding-top:5px;"></div>
+<div class="ui cards" *ngFor="let item of requests" style="padding-top:0px;">
+  <div class="card" style="width:500px;padding-top:0px;padding-bottom:0px;" *ngIf="item?.active==true">
+    <div class="content"  style="margin:0px;padding:0px;padding-top:5px;padding-left:5px;padding-right:5px;">
+      <img class="right floated mini ui image" *ngIf="item.requestedFromUser.photo==null" src="/assets/profileimages/img1.jpg" style="width:100px;height:80px;">
+        <img class="right floated mini ui image" *ngIf="item.requestedFromUser.photo!=null" src="{{path}}/{{item?.requestedFromUser?.photo?.createdBy}}/{{item?.requestedFromUser?.photo?.albumId}}/{{item?.requestedFromUser?.photo?.details[0]?.name}}" style="width:100px;height:80px;">
+      <div class="header">
+        {{item?.requestedFromUser?.name}}
+      </div>
+      <div class="meta">
+        
+      </div>
+      <!--<div class="description">
+        
+      </div>-->
+    </div>
+    <div class="extra content">
+      {{item?.requestedFromUser?.name}} want to be your friend. Will you Accept?
+      <div class="right floated ui buttons">
+        <div class="ui basic green button" (click)="accept(item)">Yes</div><div style="width:5px;"></div>
+        <div class="ui basic red button" (click)="reject(item)">No</div>
+      </div>
+    </div>
+  </div>
+</div>
+

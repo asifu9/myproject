@@ -1,0 +1,23 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+<mat-menu #menu="matMenu">
+
+
+  <button *ngIf="deleteButton" mat-menu-item (click)="delete()">
+    <mat-icon>delete</mat-icon>
+    <span>Delete</span>
+  </button>
+    <button *ngIf="attachmentButton" mat-menu-item (click)="attachment()">
+    <mat-icon>attachment</mat-icon>
+    <span>attachmentButton</span>
+  </button>
+    <button *ngIf="editButton" mat-menu-item (click)="edit()">
+    <mat-icon>edit</mat-icon>
+    <span>Delete</span>
+  </button>
+    <button *ngIf="popOutButton" mat-menu-item (click)="popout()">
+    <mat-icon>popout</mat-icon>
+    <span>popout</span>
+  </button>
+</mat-menu>

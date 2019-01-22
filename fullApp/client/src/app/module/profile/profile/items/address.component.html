@@ -1,0 +1,81 @@
+<div style="font-size: 14px;">
+<div class="ui clearing segment">
+
+  <h3 class="ui left floated header">
+  <i class="address card icon"> </i>Address
+  </h3>
+  <h3 class="ui right floated header" (click)="showAddNew()">
+    <i class="add square icon" > </i>New
+  </h3>
+</div>
+<br/>
+<div *ngIf="isNew==true || isEdited==true" >
+  <form class="ui form" name="addressForm" ngNoForm>
+    <div class="field">
+      <label>{{'country'|in18}}</label>
+      <input type="text" [(ngModel)]="address.country" ngOpt placeholder="{{'country'|in18}}">
+    </div>
+    <div class="field">
+      <label>{{'state'|in18}}</label>
+      <input type="text" [(ngModel)]="address.state" placeholder="{{'state'|in18}}">
+    </div>
+    <div class="field">
+      <label>{{'city'|in18}}</label>
+      <input type="text" [(ngModel)]="address.city" placeholder="{{'city'|in18}}">
+    </div>
+    <div class="field">
+      <label>{{'street'|in18}}</label>
+      <input type="text" [(ngModel)]="address.street" placeholder="{{'street'|in18}}">
+    </div>
+    <div class="field">
+      <label>{{'landMark'|in18}}</label>
+      <input type="text" [(ngModel)]="address.landMark" placeholder="{{'landMark'|in18}}">
+    </div>
+    <div class="field">
+      <label>{{'pinCode'|in18}}</label>
+      <input type="text" [(ngModel)]="address.pincode" placeholder="{{'pinCode'|in18}}">
+    </div>
+
+    <div class="field">
+      <label>{{'addressType'|in18}}</label>
+      <select class="ui search dropdown" [(ngModel)]="address.addressType">
+        <option value="">{{'selectType'|in18}}</option>
+        <option value="permanent">{{'permanent'|in18}}</option>
+        <option value="temporary">{{'temporory'|in18}}</option>
+      </select>
+    </div>
+    <button class="ui button" type="button" (click)="saveAddress()">{{'submit'|in18}}</button>
+  </form>
+</div>
+
+  <table class="ui celled padded table" *ngIf="isEdited==false">
+  <thead>
+    <tr><th class="single line">Country</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Street</th>
+    <th>Pincode</th>
+  </tr></thead>
+  <tbody>
+    <tr *ngFor="let item of addresses">
+      <td>
+        <span><a (click)="editAddress(item)" >{{item.country}}</a></span>
+      </td>
+      <td >
+       <span> {{item.state}}</span>
+      </td>
+      <td>
+      <span>{{item.city}}</span>
+      </td>
+      <td >
+       <span> {{item.street}}</span>
+      
+      </td>
+      <td>
+       <span>{{item.pincode}}</span>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

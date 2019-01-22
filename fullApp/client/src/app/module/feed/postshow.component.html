@@ -1,0 +1,82 @@
+
+<div>
+    <div *ngIf="post?.objectIdObj?.length==1" >
+        <img *ngIf="imgSize==0" src="{{photo1}}" (click)="sliderShow(photoid1)">
+        <img *ngIf="imgSize!=0" src="{{photo1}}" style="width:100px;height: 80px;" (click)="sliderShow(photoid1)">
+    </div>
+    <div *ngIf="post?.objectIdObj?.length==2 && displayType==1">
+        <div class="four wide column">
+            <div class="ui card">
+                <div class="image" >
+                    <img *ngIf="imgSize==0" src="{{photo1}}" (click)="sliderShow(photoid1)">
+                    <img *ngIf="imgSize!=0" src="{{photo1}}" style="width:100px;height: 80px;" (click)="sliderShow(photoid1)">
+                </div>
+            </div>
+            <div class="ui card">
+                <div class="image" >
+                    <img *ngIf="imgSize==0" src="{{photo2}}" (click)="sliderShow(photoid2)" >
+                    <img *ngIf="imgSize!=0" src="{{photo2}}" style="width:100px;height: 80px;" (click)="sliderShow(photoid2)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="post?.objectIdObj?.length==3">
+
+    </div>
+    <div *ngIf="post?.objectIdObj?.length==4 && displayType==1">
+
+        <div class="ui two column grid" style="padding-left:15px; " >
+
+            <div *ngIf="imgSize==0" class="row">
+                <div class="column">
+                    <img src="{{photo1}}" style="width:100%;height:100%" (click)="sliderShow()">
+
+                </div>
+                <div class="column">
+                    <img src="{{photo2}}" style="width:100%;height:100%" (click)="sliderShow()">
+
+                </div>
+            </div>
+            <div *ngIf="imgSize==0" class="row">
+                <div class="column">
+                    <img src="{{photo3}}" style="width:100%;height:100%" (click)="sliderShow()">
+                </div>
+                <div class="column">
+                    <img src="{{photo4}}" style="width:100%;height:100%" (click)="sliderShow()">
+                </div>
+            </div>
+            <!-- in share section -->
+            <div *ngIf="imgSize!=0" class="row">
+                <div class="column is-1" style="width:100px;height:100px;" (click)="sliderShow()">
+                    <img src="{{photo1}}" style="width:100px;height: 80px;" (click)="sliderShow()">
+
+                </div>
+                <div class="column is-1" style="width:100px;height:100px;" (click)="sliderShow()">
+                    <img src="{{photo2}}" style="width:100px;height: 80px;" (click)="sliderShow()">
+
+                </div>
+            </div>
+            <div *ngIf="imgSize!=0" class="row">
+                <div class="column is-1" style="width:100px;height:100px;" (click)="sliderShow()">
+                    <img src="{{photo3}}" style="width:100px;height: 80px;" (click)="sliderShow()">
+                </div>
+                <div class="column is-1" style="width:100px;height:100px;" (click)="sliderShow()">
+                    <img src="{{photo4}}" style="width:100px;height: 80px;" (click)="sliderShow(photoid4)">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="post?.objectIdObj?.length>4">
+
+    </div>
+
+</div>
+
+<popupslider style="width:80%;" (someEvent)="onContainerClicked()"  #slider1>
+    <div class="app-modal-body" style="width:100%;padding: 0px;margin:0px;">
+      <!--<fileUpload [user]="user"></fileUpload>-->
+      <div style="padding: 0px;margin:0px;" #container></div>
+    </div>
+</popupslider>

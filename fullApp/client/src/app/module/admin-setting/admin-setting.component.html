@@ -1,0 +1,76 @@
+
+
+<div style="height: 70px;">
+ <topPanel></topPanel>
+</div>
+
+
+<div >
+  <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+    <ul>
+      <li><a [routerLink]="['/admin']">Admin</a></li>
+      <li class="is-active"><a aria-current="page">{{adminService.adminSelectedItem}}</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="columns">
+  <div class="column is-2">
+    <div class="ui vertical pointing menu">
+      <div class="header headerStyleMenu">{{'setup'|in18}}</div>
+      <div class="menu">
+        <a *ngIf="session.isActivityExists('user','viewuser')" [ngClass]="{'active': adminService.adminSelectedItem === 'user'}"
+          (click)="adminService.adminSelectedItem = 'user'" [routerLink]="['/admin/user/']" class="item leftMenuAdjust">
+          <mat-icon style="margin:0em 5px 0em 0.5em;">people</mat-icon> <span class="linkStyleFont"> User</span>
+        </a>
+        <a *ngIf="session.isActivityExists('designation','viewdesignation')" [ngClass]="{'active': adminService.adminSelectedItem === 'designation'}"
+          (click)="adminService.adminSelectedItem = 'designation'" [routerLink]="['/admin/designation/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">assignment_ind</mat-icon> <span class="linkStyleFont">Designation</span>
+        </a>
+        <a *ngIf="session.isActivityExists('department','viewdepartment')" [ngClass]="{'active': adminService.adminSelectedItem === 'department'}"
+          (click)="adminService.adminSelectedItem = 'department'" [routerLink]="['/admin/department/']" class="item leftMenuAdjust">
+          <mat-icon style="margin:0em 5px 0em 0.5em;">supervised_user_circle</mat-icon> <span class="linkStyleFont">Department</span>
+        </a>
+        <a *ngIf="session.isActivityExists('team','viewteam')" [ngClass]="{'active': adminService.adminSelectedItem === 'team'}"
+          (click)="adminService.adminSelectedItem = 'team'" [routerLink]="['/admin/team/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">group</mat-icon> <span class="linkStyleFont"> Team</span>
+        </a>
+        <a *ngIf="session.isActivityExists('lov','viewuser')" [ngClass]="{'active': adminService.adminSelectedItem === 'project'}"
+          (click)="adminService.adminSelectedItem = 'project'" [routerLink]="['/admin/project/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">projects</mat-icon> <span class="linkStyleFont"> Project </span>
+        </a>
+        <a *ngIf="session.isActivityExists('lov','viewuser')" [ngClass]="{'active': adminService.adminSelectedItem === 'event'}"
+          (click)="adminService.adminSelectedItem = 'event'" [routerLink]="['/admin/event/']" class="item leftMenuAdjust">
+          <mat-icon style="margin:0em 5px 0em 0.5em;">event</mat-icon> <span class="linkStyleFont">Events </span>
+        </a>
+      </div>
+      <div class="header headerStyleMenu">{{'configure'|in18}}</div>
+      <div class="menu">
+        <a *ngIf="session.isActivityExists('lov','viewlov')" [ngClass]="{'active': adminService.adminSelectedItem === 'view'}" (click)="adminService.adminSelectedItem = 'view'"
+          [routerLink]="['/admin/view/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">settings_applications</mat-icon> <span class="linkStyleFont"> View Setting </span>
+        </a>
+        <a *ngIf="session.isActivityExists('lov','viewlov')" [ngClass]="{'active': adminService.adminSelectedItem === 'lov'}" (click)="adminService.adminSelectedItem = 'lov'"
+          [routerLink]="['/admin/lov/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">list</mat-icon> <span class="linkStyleFont"> LOV </span>
+        </a>
+        <a *ngIf="session.isActivityExists('team','viewteam')" [ngClass]="{'active': adminService.adminSelectedItem === 'ticketCategory'}"
+          (click)="adminService.adminSelectedItem = 'ticketCategory'" [routerLink]="['/admin/ticketCategory/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">category</mat-icon> <span class="linkStyleFont"> Tickets Category</span>
+        </a>
+        <a *ngIf="session.isActivityExists('team','viewteam')" [ngClass]="{'active': adminService.adminSelectedItem === 'role'}"
+          (click)="adminService.adminSelectedItem = 'role'" [routerLink]="['/admin/role/']" class="item leftMenuAdjust">
+         <mat-icon style="margin:0em 5px 0em 0.5em;">link</mat-icon> <span class="linkStyleFont"> Roles</span>
+        </a>
+        <a *ngIf="session.isActivityExists('lov','viewuser')" [ngClass]="{'active': adminService.adminSelectedItem === 'leavetype'}"
+          (click)="adminService.adminSelectedItem = 'leavetype'" [routerLink]="['/admin/leavetype/']" class="item leftMenuAdjust">
+          <mat-icon style="margin:0em 5px 0em 0.5em;">directions_walk</mat-icon> <span class="linkStyleFont">Leave Types</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="column" style="float:left;padding-left: 20px;">
+    <div class="box">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="field">
+  <label>{{label}}</label>
+  <select class="ui fluid dropdown" multiple="" [ngModel]="selectedItem" (ngModelChange)="onChange($event)">
+    <option *ngFor="let item of items" [attr.value]="item.value" [attr.selected]="item.label == 'Current Wall' ? true : null">{{item.label}}</option>
+  </select>
+</div>

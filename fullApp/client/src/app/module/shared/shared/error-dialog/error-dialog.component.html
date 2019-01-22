@@ -1,0 +1,14 @@
+<div style="width: 500px;height: 75px;">
+  <p mat-dialog-title>{{title}}</p>
+  <mat-dialog-content>
+    <div style="display: block;text-align: center;">
+    <mat-icon style="color:red;font-size: 55px; text-align: center;padding-left: 0px;">error</mat-icon>
+    </div>
+    <br>{{message}}</mat-dialog-content>
+  <div style="text-align: center;">
+    <mat-dialog-actions style="float: right;">
+
+      <button mat-raised-button mat-dialog-ok (click)="onNoClick()">{{'ok'|in18}}</button>
+    </mat-dialog-actions>
+  </div>
+</div>

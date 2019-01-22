@@ -1,0 +1,34 @@
+<div class="file has-name is-fullwidth">
+  <!--<div class="columns">
+    <div class="column">
+      <label class="file-label">
+    {{multiple}}
+    <input type="file" [multiple]="multiple" (change)="updaetList($event)" hidden class="file-input" #fileInput>-->
+    <!--<input type="file"  (change)="updaetList($event)" #fileInput> 
+    
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="upload icon"></i>
+      </span>
+      <span class="file-label">
+        Choose images to upload 
+      </span>
+    </span>
+    
+  </label>
+    </div>
+    <div class="column">
+      <span class="file-name">
+        <div *ngFor="let p of attachment?.list">
+              {{p.fileName}}
+       </div>
+    </span>
+    </div>
+    <input type="button" (click)="uploadImages()" value="Upload">
+  </div>-->
+
+  <p-fileUpload name="file[]" [url]="url" (onUpload)="onBasicUpload($event)"  method="POST" multiple="multiple"
+        accept="image/*" auto="auto"></p-fileUpload>
+</div>
+
+<!--<loader *ngIf="loading==true" [message]="savingMessage"></loader>-->

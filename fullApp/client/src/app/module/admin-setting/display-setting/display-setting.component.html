@@ -1,0 +1,50 @@
+<form *ngIf="companySetting" [formGroup]="csForm" novalidate>
+  <div>
+
+
+    <div class="input-field">
+
+      <input type="text" placeholder="{{'dateFormat'|in18}}" formControlName="dateFormat">
+      <label>{{'dateFormat'|in18}} </label>
+    </div>
+
+    <div class="input-field">
+
+      <input type="text" placeholder="{{'leaveStartEndMonths'|in18}}" formControlName="leaveStartEndMonths">
+      <label>{{'leaveStartEndMonths'|in18}}</label>
+    </div>
+    <div class="input-field">
+      <label>{{'currencyFormat'|in18}}</label>
+      <input type="text" placeholder="{{'currencyFormat'|in18}}" formControlName="currencyFormat">
+    </div>
+    <div class="input-field">
+      <label>{{'timeZone'|in18}} </label>
+      <input type="email" placeholder="{{'timeZone'|in18}}" formControlName="timeZone">
+    </div>
+    <div class="input-field">
+      <label>{{'adminMail'|in18}} </label>
+      <input type="email" placeholder="{{'adminMail'|in18}}" formControlName="adminMail">
+    </div>
+
+      <div class="ui divider"></div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{'update'|in18}}
+        </button>
+
+      </div>
+    </div>
+
+<br>
+
+<app-report-data [header]="'featureList'"  [createNeeded]="'false'" (notifyToggleFeature)="updateToggle($event)" [editReq]="'false'" [meta]="meta" [data]="features"></app-report-data>
+
+
+  
+
+  </div>
+</form>

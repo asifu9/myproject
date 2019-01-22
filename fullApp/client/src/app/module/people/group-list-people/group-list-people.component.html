@@ -1,0 +1,27 @@
+
+<div  class="addPaddings">
+  
+  <table >
+    <tr  *ngFor="let user of users">
+        
+        <td class="imageSection">
+            <img class=" imageSection" width="50px" height="50px" defaultPhotoAlbum *ngIf="user.photo==null" src="session.defaultPhotoAlbum" >
+        <img class=" imageSection" width="50px" height="50px" *ngIf="user.photo!=null" src="{{path}}/{{user?.photo?.createdBy}}/{{user?.photo?.albumId}}/{{user?.photo?.details[0]?.name}}">
+        </td>
+        <td class="textSection">
+             <a href="#" (mouseover)="popupMe(user.id,$event)" class="nameStyle"> {{user.name}}</a>
+        </td>
+    </tr>
+  </table>
+
+  </div>
+
+<div id="temp">
+  <popInline #userModel>
+    <div class="app-modal-body">
+
+      <!--<fileUpload [user]="user"></fileUpload>-->
+      <div #container></div>
+    </div>
+  </popInline>
+</div>

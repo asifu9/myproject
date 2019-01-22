@@ -1,0 +1,43 @@
+<div *ngIf="rows">
+  <button (click)="AddMore()" >+{{'add'|in18}}</button>
+  <table class="ui celled striped table">
+
+  <tr  *ngFor="let rowItem of rows;let i = index">
+    <td>
+      <button *ngIf="i!==0" style="margin-top: 30px;" (click)="deleteRow(rowItem.rowId,widget.widgetId)" >{{'delete'|in18}}</button>
+      <button *ngIf="i===0" style="margin-top: 50px;" (click)="deleteRow(rowItem.rowId,widget.widgetId)" >{{'delete'|in18}}</button>
+    </td>
+    <td *ngFor="let w of getUpdatedRecords(rowItem)" [ngSwitch]="w.widgetType">
+      <div *ngSwitchCase="'InputField'">
+        <app-widget-table-inputfield *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-inputfield>
+      </div>
+      <div *ngSwitchCase="'DateTime'">
+
+        <app-widget-table-date *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-date>
+      </div>
+      <div *ngSwitchCase="'Checkbox'">
+        <app-widget-table-checkbox *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-checkbox>
+      </div>
+      <div *ngSwitchCase="'Dropdown'">
+        <app-widget-table-dropdown  *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-dropdown>
+      </div>
+      <div *ngSwitchCase="'Multichoice'">
+        <app-widget-table-multichoice *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-multichoice>
+      </div>
+      <div *ngSwitchCase="'List'">
+        <app-widget-table-list *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode"  [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-list>
+      </div>
+      <div *ngSwitchCase="'TextArea'">
+        <app-widget-table-textarea *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-textarea>
+      </div>
+      <div *ngSwitchCase="'Select'">
+        <app-widget-table-select *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-select>
+      </div>
+      <div *ngSwitchCase="'Attachment'">
+        <app-widget-table-attach *ngIf="!w.hidden" [widget]="w" [data]="data" [mode]="mode" [rowId]="rowItem.rowId" [formName]="form.name" [showHeader]="i==0" [tableId]="widget.widgetId"></app-widget-table-attach>
+      </div>
+
+    </td>
+  </tr>
+</table>
+</div>

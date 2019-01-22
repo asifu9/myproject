@@ -1,0 +1,19 @@
+   <div >
+  <div class=" input-field">
+    <label >{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+
+
+
+     <input style="width:120px;" (dateChange)="updateValue($event)" [(ngModel)]="dateField" readonly matInput [matDatepicker]="picker" placeholder="{{'chooseDate'|in18}}" >
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+
+
+<!--<p-calendar [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" [(ngModel)]="dateField" [disabled]="disabledValue"  (onSelect)="updateValue($event)"  [showIcon]="true" [dateFormat]="dateFormat"></p-calendar>-->
+  </div>
+   <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+   </div>
+<!-- <input type="text" (change)="textBoxChanged($event)" [placeholder]="placeholderValue" [(ngModel)]="textInput"> -->

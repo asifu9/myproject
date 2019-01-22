@@ -1,0 +1,158 @@
+<!--<div class="ui form">
+  <h4 class="ui dividing header">User Information</h4>
+  <div class="field">
+    <label>Name</label>
+    <div class="two fields">
+      <div class="field">
+        <input type="text"  [(ngModel)]="user.name"  placeholder="Full Name">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Email</label>
+    <div class="fields">
+      <div class="eight wide field">
+        <div class="field">
+        <input type="text"   [(ngModel)]="user.email"  placeholder="Email Address" >
+        </div>
+      </div>
+      
+    </div>
+  </div>
+   
+   <div class="field">
+    <label>Date of Birth</label>
+    <div class="fields">
+      <div class="eight wide field">
+      <div class="ui calendar" id="example1" [(ngModel)]="user.dob" style="width: 200px;height: 20px;">
+        
+
+        <div class="ui left icon input">
+        <input type="text"   placeholder="Search users...">
+        <i class="users icon"></i>
+      </div>
+  <!--<input type="text" placeholder="Search users..." >
+      
+       <div class="ui left icon">
+  <i class="calendar icon"></i>
+</div>-->
+<!--   </div>
+      </div>
+      
+      </div>
+   </div>
+
+
+
+    <div class="ui calendar" id="example1">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+        <input type="text" placeholder="dd/mm/yyyy" [(ngModel)]="user.dob"   name="user.dob" id="user.dob">
+   
+    </div>
+  </div>-->
+
+<!--
+
+
+
+   <div class="field">
+    <label>UserName</label>
+    <div class="fields">
+      <div class="eight wide field">
+        <input type="text"  [(ngModel)]="user.userName"  placeholder="Unique user name">
+      </div>
+      
+    </div>
+  </div>
+  <div class="three fields">
+  
+    <div class="field">
+      <label>Primary Contact</label>
+      <div class="twelve wide field">
+        <input type="text"  [(ngModel)]="user.primaryContact"  placeholder="Primary Contact Number">
+      </div>
+    </div>
+    <div class="field">
+      <label>Secandary Contact</label>
+      <div class="twelve wide field">
+        <input type="text" [(ngModel)]="user.secondaryContact"  placeholder="Secondary Contact Number">
+      </div>
+    </div>
+  </div>
+    <button class="ui primary button" type="submit" *ngIf="isCreateNew==true" (click)="createUser(user)">Create</button>
+    <button class="ui primary button" type="submit" *ngIf="isCreateNew==false" (click)="updateUser(user)">Update</button>
+    <button class="ui  button" type="submit">Cancel</button>
+
+</div>-->
+<!--
+<div style="padding-top:40px;">
+</div>
+<div class="ui form">
+    <h4 class="ui dividing header" style="font-size: 20px;">Group Information</h4>
+    <div class="field">
+        <label class="headerLabel" style="font-size:13px ;font-family: calibri;font-weight: verdane;">Name</label>
+        <div class="two fields">
+            <div class="field">
+                <input type="text" [(ngModel)]="user.name" placeholder="First Name">
+            </div>
+
+        </div>
+    </div>
+    <div class="field">
+        <label style="font-size:13px ;font-family: calibri;font-weight: verdane;">Email</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" [(ngModel)]="user.email" placeholder="Email">
+            </div>
+
+        </div>
+    </div>
+      <div class="field">
+        <label style="font-size:13px ;font-family: calibri;font-weight: verdane;">Date of Birth</label>
+        <div class="fields">
+            <div class="twelve wide field">
+              <div class="ui calendar" id="example1"  style="width: 200px;height: 20px;">
+                <input type="text" [(ngModel)]="user.dob" placeholder="Date of Birth" readonly> 
+              </div>
+            </div>
+
+        </div>
+    </div>
+    
+      <div class="field">
+        <label style="font-size:13px ;font-family: calibri;font-weight: verdane;">Username</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" [(ngModel)]="user.userName" placeholder="Username"> 
+            </div>
+
+        </div>
+    </div>
+      <div class="field">
+        <label style="font-size:13px ;font-family: calibri;font-weight: verdane;">Primary contact number</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" [(ngModel)]="user.primaryContactNumber" placeholder="Email"> 
+            </div>
+
+        </div>
+    </div>
+     <div class="field">
+        <label style="font-size:13px ;font-family: calibri;font-weight: verdane;">Secondary contact number</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" [(ngModel)]="user.secondaryContactNumber" placeholder="Email"> 
+            </div>
+
+        </div>
+    </div>
+
+
+
+     <button class="ui primary button" type="submit" *ngIf="isCreateNew==true" (click)="createUser(user)">Create</button>
+    <button class="ui primary button" type="submit" *ngIf="isCreateNew==false" (click)="updateUser(user)">Update</button>
+    <button class="ui  button" type="submit">Cancel</button>
+</div>-->
+
+<app-form-view [name]="name" [mode]="mode" [inputId]="inputId"></app-form-view>

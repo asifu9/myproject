@@ -1,0 +1,16 @@
+<div *ngIf="widget">
+  <div class="ui form addTopSpace">
+    <div class="inline field">
+      <label  *ngIf="showHeader">{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+      <textarea [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'"
+         (change)="textBoxChanged($event)" [disabled]="disabledValue"
+         rows="1" cols="1" style="width: 100%;height: 40px;padding:0px;margin:0px;"
+        [placeholder]="placeholderValue" [(ngModel)]="textInput">
+ 
+      </textarea>
+      <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+    </div>
+  </div>
+</div>

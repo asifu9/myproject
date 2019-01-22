@@ -1,0 +1,123 @@
+<br>
+<div class="columns">
+    <div class="column is-8">
+        <!--<div class=" box backgroundColorGray">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <textarea class="text-read-only" id="feedPoster" [(ngModel)]="feed.description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" [multiple]="multiple" (change)="updaetList()" class="file-input" #fileInput>
+                    </td>
+                    <td>
+                        <button class="ui primary right floated button" (click)="savePost()">
+                            Post
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>-->
+        <!-- new code -->
+        <div class=" box backgroundColorGray" *ngIf="session.isActivityExists('feed','postfeed')">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="feedPoster" class="textarea textBoxStyle" rows="2" [(ngModel)]="feed.description"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" *ngIf="session.isActivityExists('feed','feedPhotoUpload')" [multiple]="multiple" (change)="updaetList()"
+                            class="file-input" #fileInput>
+                    </td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button class="dropbtn"><span class="icon"><i class=" large setting icon"></i></span>
+                        </button>
+                            <!--<div class="dropdown-content">
+                                <ul>
+                                    <li *ngFor="let item of this.myMap">
+                                        {{item.key}} <input type="checkbox" [(ngModel)]="item.value" [checked]="item.value">
+                                    </li>
+                                </ul>
+                            </div>-->
+                        </div>
+
+                        <button class="ui primary right floated button" style="font-size:14px;" (click)="savePost()">
+                            Post
+                      </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <feedlist [posts]="feeds" [user]="user"></feedlist>
+    </div>
+    <div class="column is-4">
+        <div class="box peopleStyleSection">
+            sdfsdf
+            <app-group-list-people [groupName]="group?.groupUniqueName"></app-group-list-people>
+        </div>
+    </div>
+</div>
+
+<!-- new code ends here -->
+
+<!--
+
+<div class="columns">
+ <div class="column is-three-quarters">
+<div class="box">
+     <div class="ui equal width center aligned padded grid">
+
+        <div class="row">
+            <div class="column"><textarea id="feedPoster" [(ngModel)]="feed.description" ></textarea></div>
+        </div>
+        <div class="row">
+            <div class="white column" >
+                 <div class="columns">
+                    <div class="column">
+                        <input type="file" [multiple]="multiple" (change)="updaetList()"  class="file-input" #fileInput>
+                    </div>
+                    <div class="column">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="white column">
+                <div class="columns">
+                    <div class="column">
+                       
+                    </div>
+                    <div class="column">
+                        <button class="ui primary right floated button" (click)="savePost()">
+                            Post
+                        </button>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+ </div>
+   
+  
+
+    
+      <feedlist [posts]="feeds" [user]="user"></feedlist>
+      </div>
+  <div style="padding-top:40px;"></div>
+     
+  
+  <div class="column is-half">
+      <div style="height: 300px;">
+        <peoples></peoples>    
+      </div>
+  </div>
+   
+  </div>
+  -->

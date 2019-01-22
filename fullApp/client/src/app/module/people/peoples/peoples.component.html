@@ -1,0 +1,60 @@
+
+<div *ngFor="let user of users" class="addPaddings">
+  
+  <table >
+    <tr  >
+        
+        <td class="imageSection">
+            <img class=" imageSection" *ngIf="user.photo==null" src="/assets/profileimages/img1.jpg" >
+        <img class=" imageSection" *ngIf="user.photo!=null" src="{{path}}/{{user?.photo?.createdBy}}/{{user?.photo?.albumId}}/{{user?.photo?.details[0]?.name}}">
+        </td>
+        <td class="textSection">
+             <a href="#" (mouseover)="popupMe(user.id,$event)" class="nameStyle"> {{user.name}}</a>
+        </td>
+    </tr>
+  </table>
+
+  </div>
+
+  <!--<div class="columns">
+
+    <div class="column is-10">
+      <div>
+        <a href="#" (mouseover)="popupMe(user.id,$event)"> {{user.name}}</a>
+      </div>
+    </div>
+    <div class="column is-4"> 
+      <div class="ui image test" (mouseover)='over()'>
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              <div class="ui small primary button" *ngIf="user.requestStatus==null || user.requestStatus=='REJECTED'" (click)="addFriendRequest(user)"
+                title="Add Friend Request"><i class="add user icon"></i>Request</div>
+              <div class="ui small red  button" *ngIf="user.requestStatus=='REQUESTED'" (click)="addFriendRequest(user)" title="Cancel Friend Request"><i class="cancel user icon" style="margin-top:-10px;"></i>Cancel</div>
+
+              <div *ngIf="user.requestStatus=='AcceptMe'">
+                <div class="ui small green  button" (click)="accept(user)" title="Accept Friend Request"><i class="checkmark icon" style="margin-top:-10px;"></i>Accept</div>
+                <div class="ui small red  button" (click)="reject(user)" title="Reject Friend Request"><i class="remove icon" style="margin-top:-10px;"></i>Reject</div>
+              </div>
+              <div class="ui small primary button" *ngIf="user.follow==false" (click)="followYou(user)"><i class="forward icon"></i>&nbsp;Follow &nbsp;</div>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+  </div>-->
+
+
+<!--</div>-->
+
+<div id="temp">
+  <popInline #userModel>
+    <div class="app-modal-body">
+
+      <!--<fileUpload [user]="user"></fileUpload>-->
+      <div #container></div>
+    </div>
+  </popInline>
+</div>

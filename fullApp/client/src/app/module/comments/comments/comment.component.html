@@ -1,0 +1,30 @@
+
+
+<div >
+
+<article class="media">
+  <figure class="media-left" style="margin: 0px;">
+    <p >
+      <img src="{{photo1}}"  style="width:30px;height:30px;">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="field">
+      <p class="control">
+       <span class="NameStyle" >{{commentedUser?.name}}</span> <span class="contentStyle"> {{com?.comment}} </span>
+      </p>
+    </div>
+    <div class="extra"  style="width:100%;">
+        <!--<div *ngIf="commented" class="ui label likeStyle"  (click)="likeCommentSection()"><i class="like icon"></i>{{com.likeCount}}</div>-->
+         <div *ngIf="commented" class="ui label likeStyleactive" (click)="likeCommentSection()"><i class="like icon"></i>{{com.likeCount}}</div>
+        <div *ngIf="!commented" class="ui label likeStyle" (click)="likeCommentSection()"><i class="like icon"></i>{{com.likeCount}}</div>
+        <div class="ui label likeStyleDateTime"><i class="time icon"></i>{{com?.createdOnStr}}</div>
+
+       
+       
+      </div>
+
+  </div>
+</article>
+  </div>
+

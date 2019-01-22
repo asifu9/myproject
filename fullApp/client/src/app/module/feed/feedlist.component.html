@@ -1,0 +1,6 @@
+<div *ngIf="posts && posts.length>0">
+    <div *ngFor="let item of posts">
+        <post [post]="item" [user]="user"></post>
+    </div>
+
+</div>

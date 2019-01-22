@@ -1,0 +1,30 @@
+<app-user-header [user]="user" [current]="'roles'" [userId]="userId"></app-user-header>
+
+<div>
+<!--
+   <div class="columns">
+      <div class="column">
+        
+        <app-paginate-table [table]="displayRoles" [title]="'All Available Roles'" (passdata)="checkUserRoles($event)" [data]="displayRoles" [display]="'name'"></app-paginate-table
+      </div>
+       second one ok cool
+      <div class="column">
+        <app-paginate-table [table]="roles" [title]="'User Roles'" [data]="roles" (passdata)="removedRoles($event)"  [display]="'name'"></app-paginate-table>
+      </div>
+
+    </div>-->
+
+
+    <div class="columns">
+  <div class="column">
+    <app-report-data [header]="'allRoles'"  [direction]="'left'" (addedListEmitter)="updatedList($event)" [createNeeded]="'false'" 
+      [meta]="meta" [data]="displayRoles"></app-report-data>
+  </div>
+  <div class="column">
+    <app-report-data [header]="'assignedRoles'"  [direction]="'right'" (removedListEmitter)="updatedReverseList($event)" [createNeeded]="'false'" 
+      [meta]="metaSecond" [data]="roles"></app-report-data>
+  </div>
+</div>
+
+    <button class="ui primary button" (click)="updateRolesInDB()">{{'update'|in18}}</button>
+</div>

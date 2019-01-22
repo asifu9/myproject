@@ -1,0 +1,114 @@
+
+<div class="box">
+    {{'sharePost'|in18}}
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-64x64">
+                <img src="{{topProfilePic}}" alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <!-- actual post-->
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img  src="{{profilePic}}" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>{{post?.createdByObj?.name}}</strong>  <small>{{post?.createdOnStr}}</small>
+                                    <br> {{post?.description}}
+                                
+                                <postshow [post]="post" [imgSize]="imgSize"></postshow></p>
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>
+            <div>
+        <div class="four wide field">
+      <label>{{'description'|in18}}</label>
+      <div class="field">
+         <textarea rows="5" cols="55" [(ngModel)]="desc"></textarea>
+      </div>
+    </div>
+      <div class="four wide field">
+
+      <div class="field">
+        <dropdown [dropdownURL]="dropdownURL" [items]="items" [label]="itemLabel" [(selectedItem)]="selectedItem"></dropdown>
+      </div>
+    </div>
+                
+              
+                 
+
+            </div>
+                <!-- end of actual post -->
+            </div>
+      <div class="extra" style="float:right;">
+
+            <button class="small ui primary button" (click)="sharePost()">{{'share'|in18}}</button>
+            <button class="small ui button" (click)="cancelShare()">{{'cancel'|in18}}</button>
+            <loader *ngIf="showLoader==true" [message]="loaderMesssage"></loader>
+            <success *ngIf="showSuccess==true" [message]="successMessage"></success>
+        </div>
+    <br>
+        </div>
+       
+    </article>
+    
+</div>
+
+
+
+
+
+
+
+<!--<div class="ui items">
+    <div class="item">
+        <div class="image">
+            <img src="{{profilePic}}" class="ui big avatar image">
+        </div>
+        <div class="content">
+            <br>
+            <br>
+            <div class="ui items">
+                <div class="item">
+                    <div class="image">
+                        <img src="{{profilePic}}" class="ui small avatar image">
+                    </div>
+                    <div class="content">
+
+                        <div class="meta">
+                            <span>{{post?.description}}</span>
+                            <postshow [post]="post"></postshow>
+                        </div>
+
+                        <div class="description">
+
+                            <textarea rows="5" cols="55" [(ngModel)]="desc"></textarea>
+
+                            <dropdown [items]="items" [(selectedItem)]="selectedItem"></dropdown>',
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="extra">
+
+            <button class="large ui primary button" (click)="sharePhoto()">Share</button>
+            <button class="large ui button">Cancel</button>
+        </div>
+
+    </div>
+</div>-->

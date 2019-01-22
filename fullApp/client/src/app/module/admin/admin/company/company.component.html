@@ -1,0 +1,40 @@
+<div class="columns">
+  <div class="column is-8">
+    <table>
+      <tr class="link-button-section">
+        <td>
+          <span>Department</span>
+        </td>
+        <td>
+          <a [routerLink]="['new']" *ngIf="session.isActivityExists('department','createdepartment')"><i class="plus icon"></i>Create New</a>
+        </td>
+      </tr>
+    </table>
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th class="five wide">Name </th>
+          <th class="five wide">Unqiue Name </th>
+          <th class="two wide">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of this.companies">
+          <td><a href="#">{{d.uname}}</a></td>
+          <td><a href="#">{{d.name}}</a></td>
+          <td>
+            <div class="dropdown">
+              <button class="dropbtn"><span class="icon"><i class=" large setting icon"></i></span>
+</button>
+              <div class="dropdown-content">
+                <a  (click)="hideButtons()" *ngIf="session.isActivityExists('department','editdepartment')" [routerLink]="['/admin/department/update/',d.id]">Update</a>
+                <a  (click)="hideButtons()" *ngIf="session.isActivityExists('department','deletedepartment')">Delete</a>
+                <a  (click)="generateSetting(d)" *ngIf="session.isActivityExists('department','deletedepartment')">Generate Setting</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

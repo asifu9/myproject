@@ -1,0 +1,164 @@
+<div>
+  <div *ngIf="ticket">
+    <!-- Main container -->
+
+    <nav class="level">
+      <!-- Left side -->
+
+      <div class="level-left">
+        <span class="header-block"> {{this.ticket.subject}}</span>
+        <br>
+      </div>
+
+
+      <!-- Right side -->
+      <div class="level-right aline-center">
+
+        <table class="tableStyle">
+          <tr>
+            <td class="statusStyle" style="vertical-align: middle;">
+              Assigned To:
+            </td>
+            <td style="vertical-align: middle;">
+              <span class="status-value">
+                {{this.ticket.assignedToUser?.name}}
+                <div class="dropdown">
+                  <i class="edit icon dropdown-toggle"></i>
+                  <div class="dropdown-content">
+                    <div class="level-item spaceBottom">
+                      <div class="field has-addons">
+                        <p class="control">
+                          <input class="input" [(ngModel)]="searchUser" type="text" placeholder="Find a post">
+                        </p>
+                        <p class="control">
+                          <button class="button" (click)="showCategoryData()">
+                            Search
+                          </button>
+                        </p>
+                      </div>
+                    </div>
+                    <ul *ngFor="let item of ticketCategoruyUsers">
+                      <li (click)="assignToOther(item.userId)">{{item.user?.name}} <i style="text-align: right;float: right;" [ngClass]="getClassType(item.userId)"></i></li>
+                    </ul>
+                  </div>
+                </div>
+              </span>
+            </td>
+            <td class="statusStyle" style="vertical-align: middle;">
+              Status:
+            </td>
+            <td style="vertical-align: middle;">
+              <span class="status-value">
+                {{this.ticketService?.tickeStatusMap[ticket?.status]}}
+              </span>
+            </td>
+          </tr>
+        </table>
+
+
+      </div>
+    </nav>
+    <div class="ui warning message">
+      <table>
+        <tr>
+          <td>
+            <span class="contentHeaderStyle">Created By: &nbsp;</span><span class="contenDetailStyle"> {{ticket.createdByUser?.name}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="contentHeaderStyle">Description: &nbsp;</span><span class="contenDetailStyle">{{this.ticket.description}}</span>
+
+          </td>
+        </tr>
+      </table>
+
+
+    </div>
+    <nav>
+      <table>
+        <tr>
+          <td>
+            <textarea [(ngModel)]="ticketUpdate.description" rows="3" cols="100" style="width:100%;"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td style="float: right;">
+            <table style="float: right">
+              <tr>
+                <td>
+                  <select class='select-option' [(ngModel)]="ticket.status" required>
+                      <option class='option' *ngFor='let p of this.ticketService?.ticketStatus ' [selected]="p?.storedValue==ticket.status" [value]="p?.storedValue">{{p?.displayValue}}</option>
+                  </select>
+                </td>
+                <td style="padding-left:10px;">
+                  <div class="button-section">
+                    <button (click)="createEntry()" class="button-save">Update</button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <span class="contentHeaderStyle">Updates:</span>
+      <!--this.ticketService.ticketStatus -->
+      <br>
+
+
+    </nav>
+    <nav>
+      <div *ngIf="this.ticket.updates">
+        <div *ngFor="let item of this.ticket.updates" style="padding-top: 10px;">
+          <div class="ui info message">
+
+            <div class="header">
+              <img *ngIf="item.updatedByUser?.photoPath" [src]="item.updatedByUser?.photoPath" width="30px" height="30px">              {{item.updatedByUser?.name }} &nbsp;<i class="time icon"></i><span class="dateDisplay"> {{getUpdateTime(item.createdOn)}}</span>
+            </div>
+            <ul class="list descriptionStyle paragraphStart">
+              <span class="contenDetailStyle">
+              {{item.description}}
+              </span>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <nav>
+      <div class="ui warning message">
+        <div class="ui four cards">
+          <div class="card" *ngFor="let att of ticket.attachments">
+            <div class="image">
+              <!--<img src="/images/avatar2/large/kristy.png">-->
+              <a href="{{path}}/{{ticket.createdBy}}/{{ticket.id}}/{{att.path}}" target="_blank">{{getUpdatedName(att.displayName)}}</a>
+            </div>
+            <div class="content">
+              <a class="header" href="#">{{getUpdateTime(att.createdOn)}}</a>
+              <div class="meta">
+                <a>{{att.uploadedByUser?.name}} </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <label class="file-label">
+            <input type="file" [multiple]="multiple"  hidden class="file-input" #fileInput>
+            
+            <span class="file-cta">
+              <span class="file-icon">
+              </span>
+          
+            </span>
+            
+          </label>
+      <input type="button" value="Upload" class="ui tiny primary button " (click)="uploadImages()" />
+      <loader *ngIf="loading==true" [message]="savingMessage"></loader>
+    </nav>
+  </div>
+</div>

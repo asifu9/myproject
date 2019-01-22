@@ -1,0 +1,19 @@
+<br>
+
+<div class="columns">
+  <div class="column">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <div class="column is-one-quarter">
+
+    <aside class="menu">
+      <ul class="menu-list">
+        <li><a [ngClass]="getClass('newticket')"  [routerLink]="['create']">New Ticket</a></li>
+        <li><a [ngClass]="getClass('mytickets')" [routerLink]="['list/mytickets']" (click)="showMyTickets('mytickets')">My Tickets</a></li>
+        <li><a [ngClass]="getClass('assignedtome')" *ngIf="canResolveTicket=='FIXER'" [routerLink]="['list/assignedtome']" (click)="showMyTickets('assignedtome')">Tickets Assigned To Me</a></li>
+        <li><a [ngClass]="getClass('unassigned')" (click)="showMyTickets('unassigned')" [routerLink]="['list/unassigned']">Unassigned Tickets</a></li>
+      </ul>
+    </aside>
+  </div>
+</div>

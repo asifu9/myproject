@@ -1,0 +1,11 @@
+
+<br>
+ <a [routerLink]="['new']" class="header-block">+ Group </a>
+<div style="padding-top:40px;">
+  <div class="ui grid container">
+      <div *ngIf="groups && groups.length==0">No groups are created </div>
+       <div *ngFor="let group of groups" >
+      <group [group]="group"></group>
+  </div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="ui fixed menu adjustColor">
+  <div class="ui container">
+    <a href="#" class="header item ">
+        <span class="textColorChange">Project Name</span>
+      </a>
+    <a [routerLink]="['/home']" class="item "><span class="textColorChange">Home</span></a>
+    <div class="right item okadjustheight">
+      <a [routerLink]="['/user/',userName]" class="item "><span class="textColorChange">User</span></a>
+      <a [routerLink]="['/notification']" class="item "><span class="textColorChange">Request</span></a>
+      <a  class="item "><span class="textColorChange">Noti {{notification?.length}}</span>
+            <div class="dropdown">
+              <i class="large setting icon dropdown-toggle"></i>
+              <div class="dropdown-content">
+                <app-notifi-menu [data]="res"></app-notifi-menu>
+            </div>
+          </div>
+
+      </a>
+
+    </div>
+  </div>
+</div>

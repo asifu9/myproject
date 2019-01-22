@@ -1,0 +1,158 @@
+.display-block{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom-width: thin;
+    border-bottom-style: inset;
+    border-bottom-color: #d9d9d9;
+}
+.header-display-block{
+ width: 100%;
+}
+.header-display-block img {
+    left:0px;
+    float: left;
+}
+.header-display-block div {
+    width:100%;
+    position: relative;
+}
+.example-margin {
+  margin: 0 10px;
+}
+.header-display-block div span{
+     font-family: 'Source Sans Pro', sans-serif;
+
+color:gray;
+font-size: 12px;
+float: right;
+font-weight: 777;
+}
+.display-block p {
+    padding-left: 50px;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    color:black;
+    font-weight: normal;
+    font-size: 15px;
+}
+.header-display-block div  label{
+
+padding-left: 10px;
+   font-family: 'Source Sans Pro', sans-serif;
+color:Tomato;
+font-size: 16px;
+font-weight: bold;
+}
+
+.header-display-block div  i{
+
+    top:4px;
+    position: relative;
+}
+ul {
+    position: relative;
+
+}
+.number-style-counter{
+
+padding-left: 5px;
+padding-right: 5px;
+   font-family: 'Source Sans Pro', sans-serif;
+color:black;
+font-size: 13px;
+font-weight: normal;
+}
+.main-text-area {
+
+    position: relative;
+        width: 98%;
+   
+}
+.main-text-area textarea{
+
+        width: 95%;
+    position: relative;
+    left: 50px;
+     font-family: 'Source Sans Pro', sans-serif;
+     font-size: 15px;
+     font-weight: 777;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.likeCommentSection {
+    position: relative;
+    margin-left: 50px;
+}
+.main-text-area textarea:focus{
+
+      
+      box-shadow: none;
+      outline: none;
+}
+.main-text-area img {
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 50px;
+    height: 50px;
+}
+.mybuttonstyle button {
+    position: relative;
+    float: right;
+    top: -55px;
+}
+.message-header-block div {
+    width: 90%;
+}
+.message-header-block div label{
+    font-family: 'Source Sans Pro', sans-serif;
+     font-size: 20px;
+     font-weight: bold;
+     color:black;
+     float:left;
+     width: 50%;
+}
+.message-header-block div  a{
+    font-family: 'Source Sans Pro', sans-serif;
+     font-size: 15x;
+     font-weight: 777;
+     float: right;
+     color:tomato;
+     width: 50%;
+}
+mat-icon{
+    margin:0em 5px 0em 0em !important; 
+}
+.menuStyle{
+          display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.likeCommentSection a{
+    text-decoration: none;
+    color:gray;
+          display: inline-flex !important;
+  vertical-align: middle !important;
+  align-items: center !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.likeCommentSection a:hover{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.message-comment-section{
+    position: relative;
+}

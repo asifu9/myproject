@@ -1,0 +1,7 @@
+
+<div class="container-flex">
+
+
+  <app-report-data [header]="'department'" [createURL]="'create'" [updateURL]="'update'" (createEventEmitter)='showCreate($event)'  (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" [meta]="meta" [data]="this.adminService?.departList"></app-report-data>
+
+</div>

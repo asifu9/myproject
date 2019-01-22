@@ -1,0 +1,131 @@
+<div class="search-div">
+
+  <table style="padding: 0px;margin: 0px;">
+    <tr>
+      <td style="float: left;width: 60%;">
+        <span class="reportHeader"> {{header|in18}}</span>
+      </td>
+
+      <td style="width:28%;">
+        <mat-form-field class="search-form-field" floatLabel="never">
+          <input matInput [(ngModel)]="searchKey" placeholder="{{'search'|in18}}" autocomplete="off" (keyup)="applyFilter()">
+          <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+      <td style="width:12%;" *ngIf="createNeeded=='true'">
+        <button *ngIf="!createURL" mat-raised-button style="padding-top:7px;float: right;" (click)="addNew()">
+          <mat-icon>add</mat-icon>{{'create'|in18}}
+        </button>
+        <a *ngIf="createURL" mat-raised-button style="padding-top:7px;float: right;" [routerLink]="createURL">
+          <mat-icon>add</mat-icon>{{'create'|in18}}
+        </a>
+      </td>
+
+    </tr>
+  </table>
+</div>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData" *ngIf="meta.length" matSort>
+    <ng-container *ngFor="let attr of meta">
+      {{getData(attr)}}
+      <ng-container *ngIf="attr.key && attr.type==='date'" [matColumnDef]="attr.key">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{attr.label|in18}}</mat-header-cell>
+        <mat-cell *matCellDef="let obj">{{getDate(obj[attr.key])}}</mat-cell>
+      </ng-container>
+      <ng-container *ngIf="attr.key && attr.type==='featureToggle'" [matColumnDef]="attr.key">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{attr.label|in18}}</mat-header-cell>
+        <mat-cell *matCellDef="let obj">
+          <mat-icon>{{getIconName(obj[attr.key],attr.list)}}</mat-icon>
+        </mat-cell>
+      </ng-container>
+      <ng-container *ngIf="attr.key && attr.type==='image'" [matColumnDef]="attr.key">
+        <mat-header-cell style="flex: 0 0 75px;" *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let obj" style="flex: 0 0 75px;">
+          <img style="width:50px;height: 50px;" [src]="session.appendURL(obj[attr.key])" ><img>
+        </mat-cell>
+      </ng-container>
+      <ng-container *ngIf="attr.key && attr.type==='imageObj'" [matColumnDef]="attr.key">
+        <mat-header-cell style="flex: 0 0 75px;" *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let obj" style="flex: 0 0 75px;">
+          <img style="width:50px;height: 50px;" [src]="session.showPhotoTest(obj[attr.key])" ><img>
+        </mat-cell>
+      </ng-container>
+      <ng-container *ngIf="attr.key && attr.type==='checkbox'" [matColumnDef]="attr.key">
+        <mat-header-cell  *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let obj" >
+            <mat-icon *ngIf="direction=='left'" (click)="updateList(obj[attr.key])" >arrow_forward_ios</mat-icon>
+            <mat-icon *ngIf="direction=='right'" (click)="removeList(obj[attr.key])" >arrow_back_ios</mat-icon>
+        </mat-cell>
+      </ng-container>
+        <ng-container *ngIf="attr.key && attr.type==='select'" [matColumnDef]="attr.key">
+        <mat-header-cell  *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let obj" >
+            <button class="button-select" (click)="notofiySelect(obj)"> {{'select'|in18}} </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container *ngIf="attr.key &&(attr.type=='list')" [matColumnDef]="attr.key">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{attr.label|in18}}</mat-header-cell>
+        <mat-cell *matCellDef="let obj">{{getDisplayValue(attr.list,obj[attr.key])}}</mat-cell>
+      </ng-container>
+      <ng-container *ngIf=" attr.key && !(attr.type) " [matColumnDef]="attr.key">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{attr.label|in18}}</mat-header-cell>
+        <mat-cell *matCellDef="let obj">{{obj[attr.key]}}</mat-cell>
+      </ng-container>
+      <ng-container *ngIf="!attr.key">
+        <ng-container [matColumnDef]="actions">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let obj">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+
+            <mat-menu #menu="matMenu">
+              <a *ngIf="attr.type==='featureToggleAction'"  mat-menu-item (click)="featureToggleNotify(obj.id)">
+                <mat-icon [style.color]="getImageUrlToggle(attr.list,obj[attr.key])">radio_button_checked</mat-icon>
+               {{ getImageUrlToggleLabel(attr.list,obj[attr.key]) |in18}}
+              </a>
+              <button *ngIf="attr.type!=='featureToggleAction' && !updateURL && editReq" mat-menu-item (click)="editRow(obj)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <a *ngIf="attr.type==='featureToggleAction' && updateURL && editReq" mat-menu-item [routerLink]="[updateURL,obj.id]">
+                <mat-icon>edit</mat-icon><span>Edit</span>
+              </a>
+              <a *ngIf="!attr.type && updateURL && editReq" mat-menu-item [routerLink]="[updateURL,obj.id]">
+                <mat-icon>edit</mat-icon><span>Edit</span>
+              </a>
+              <button mat-menu-item *ngIf="attr.type!=='featureToggleAction'" (click)="deleteRow(obj)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+
+          </mat-cell>
+        </ng-container>
+      </ng-container>
+
+    </ng-container>
+    <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="auto">
+        Loading Data...
+      </mat-footer-cell>
+    </ng-container>
+    <ng-container matColumnDef="noData">
+      <mat-footer-cell *matFooterCellDef colspan="auto">
+        No data.
+      </mat-footer-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns">
+
+    </mat-header-row>
+    <mat-row *matRowDef="let row;columns: displayedColumns">
+    </mat-row>
+    <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listData!=null}"></mat-footer-row>
+    <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(listData!=null && listData.data.length==0)}"></mat-footer-row>
+
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+</div>

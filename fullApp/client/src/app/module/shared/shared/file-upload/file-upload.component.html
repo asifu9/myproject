@@ -1,0 +1,31 @@
+<div>
+
+  <label class="file-label">
+    <input type="file" [multiple]="multiple" (change)="updaetList()" hidden class="file-input" #fileInput>
+    
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="upload icon"></i>
+      </span>
+      <span class="file-label" *ngIf="single">
+        {{'chooseImageToUpload'|in18}}
+      </span>
+       <span class="file-label" *ngIf="!single">
+        {{'chooseImageToUploadSingle'|in18}}
+      </span>
+    </span>
+    
+  </label>
+  <div *ngIf="items && items.length>0">
+  {{'files'|in18}}
+  <div *ngFor="let obj of items;let i = index">
+      {{1+i}}. {{obj}}
+  </div>
+  </div>
+ </div>
+    <div class="button-save">
+      <button class="buttonStyleUPload" (click)="uploadImages()">
+        {{'upload'|in18}}
+      </button>
+  </div>
+  <loader *ngIf="loading==true" [message]="savingMessage"></loader>

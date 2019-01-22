@@ -1,0 +1,28 @@
+<div class="ui form">
+  <div class="inline field addTopSpace">
+    <label  *ngIf="showHeader">{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+    <div *ngIf="widget">
+      <!--<select class='select-option' [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" [disabled]="disabledValue" [(ngModel)]="selectedValue"  (change)="textBoxChanged($event)" >
+           
+              <option class='option' *ngFor="let item of widget.options" [value]="item?.storedValue">{{item?.displayValue}}</option>
+          </select>-->
+    <div class="form-item-container" [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'">
+      <ul class="list-inline">
+    <li *ngFor="let ss of textInput" >
+        <span class="highLight" >{{getDisplayValue(ss)}} <span class="remove" *ngIf="!this.disabledValue" (click)="removeAddedValues(ss)">x </span></span>
+    </li>
+    <li *ngIf="hideTextBox">
+        <input type="text"  class="textInputStyle"   [disabled]="disabledValue" [(ngModel)]="selectedValue"  (keyup)="complete($event)" />
+    </li>
+      </ul>
+	
+    </div>
+			<ul class="list-group" *ngIf="hideTextBox">
+				<li class="list-group-item" *ngFor="let item of tempArray" (click)="fillTextbox(item.storedValue)">{{item.displayValue}}</li>
+			</ul>
+    </div>
+    <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+  </div>
+</div>

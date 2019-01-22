@@ -1,0 +1,23 @@
+
+
+<div class="columns">
+  <div class="column">
+    <app-report-data [header]="'user'" [direction]="'left'" (addedListEmitter)="updatedList($event)" [createNeeded]="'false'" 
+      [meta]="meta" [data]="allUsers"></app-report-data>
+  </div>
+  <div class="column">
+    <app-report-data [header]="'user'" [direction]="'right'" (removedListEmitter)="updatedReverseList($event)" [createNeeded]="'false'" 
+      [meta]="metaSecond" [data]="addedUsers"></app-report-data>
+  </div>
+</div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button class="button-save" (click)="updateParent()">
+          {{'select'|in18}}
+        </button>
+
+      </div>
+    </div>

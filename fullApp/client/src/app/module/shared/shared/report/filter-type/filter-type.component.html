@@ -1,0 +1,14 @@
+
+<div class="borderFilter" *ngIf="filter" >
+  <div class="" *ngFor="let ii of filter">
+      <span *ngIf="ii?.columnType=='InputField'||ii?.columnType=='TextArea'">
+        <span class="labelStyle">{{ii.columnDisplayName}}</span>
+        <input type="text" class="inputStyleForFilter" (change)="updateParent()" [(ngModel)]="filterModel[ii.columnName]" placeholder="Name">
+      </span>
+      <span *ngIf="ii?.columnType=='DateTime'">
+        <span class="labelStyle">{{ii.columnDisplayName}}</span>
+        <!--<input type="text" class="inputStyleForFilter" (change)="updateParent()" [(ngModel)]="filterModel[ii.columnName]" placeholder="Name">-->
+        <!--<p-calendar  [showIcon]="true" (change)="updateParent()" (onSelect)="changeDate($event)" [(ngModel)]="filterModel[ii.columnName]" dateFormat="dd/mm/yy"></p-calendar>-->
+      </span>
+  </div>
+</div>

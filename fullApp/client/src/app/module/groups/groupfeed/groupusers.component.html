@@ -1,0 +1,136 @@
+<div style="padding-top:60px;padding-left:40px;">
+
+
+
+  <nav class="panel">
+    <p class="panel-heading">
+      Joined Members
+    </p>
+    <!--<div class="panel-block">
+      <p class="control has-icons-left">
+        <input class="input is-small" type="text" placeholder="search">
+        <span class="icon is-small is-left">
+        <i class="fa fa-search"></i>
+      </span>
+      </p>
+    </div>-->
+    <a class="panel-block" style="padding-bottom:20px;">
+      <div class="ui grid container">
+        <div *ngFor="let user of joinedUsers">
+
+          <div class="four wide column">
+            <div class="ui cards">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="{{user?.user?.photo?.displayPath}}">
+                  <div class="header">
+                    {{user?.user?.name}}
+                  </div>
+                  <div class="meta">
+                    Joined: {{user?.statusDateStr}}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </nav>
+
+
+  <nav class="panel" *ngIf="isOwner==true">
+    <p class="panel-heading">
+      Waiting for Approval
+    </p>
+    <!--<div class="panel-block">
+      <p class="control has-icons-left">
+        <input class="input is-small" type="text" placeholder="search">
+        <span class="icon is-small is-left">
+        <i class="fa fa-search"></i>
+      </span>
+      </p>
+    </div>-->
+    <a class="panel-block" style="padding-bottom:20px;">
+      <div class="ui grid container">
+        <div *ngFor="let user of waitingUsers">
+
+          <div class="four wide column">
+            <div class="ui cards">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="{{user?.user?.photo?.displayPath}}">
+                  <div class="header">
+                    {{user?.user?.name}}
+                  </div>
+                  <div class="meta">
+                    Requested : {{user?.statusDateStr}}
+                  </div>
+                </div>
+                  <div class="extra">
+                     <div class="ui two buttons">
+        <div class="ui basic green button" (click)="approveMe(user)">Approve</div>
+        <div class="ui basic red button" (click)="rejectMe(user)">Reject</div>
+      </div>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </nav>
+
+
+
+
+  <nav class="panel" *ngIf="isOwner==true">
+    <p class="panel-heading">
+      Rejected Approvals
+    </p>
+    <!--<div class="panel-block">
+      <p class="control has-icons-left">
+        <input class="input is-small" type="text" placeholder="search">
+        <span class="icon is-small is-left">
+        <i class="fa fa-search"></i>
+      </span>
+      </p>
+    </div>-->
+    <a class="panel-block" style="padding-bottom:20px;">
+      <div class="ui grid container">
+        <div *ngFor="let user of rejectedUsers">
+
+          <div class="four wide column">
+            <div class="ui cards">
+              <div class="card">
+                <div class="content">
+                  <img class="right floated mini ui image" src="{{user?.user?.photo?.displayPath}}">
+                  <div class="header">
+                    {{user?.user?.name}}
+                  </div>
+                  <div class="meta">
+                    Rejected : {{user?.statusDateStr}}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </nav>
+
+
+
+
+
+
+
+
+
+</div>

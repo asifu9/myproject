@@ -1,0 +1,10 @@
+   <div class="ui form">
+  <div class=" field addTopSpace">
+    <label *ngIf="showHeader">{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+<p-calendar [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" [(ngModel)]="dateField" [disabled]="disabledValue"  (onSelect)="updateValue($event)"  [showIcon]="true" [dateFormat]="dateFormat"></p-calendar>
+  </div>
+   <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+   </div>
+<!-- <input type="text" (change)="textBoxChanged($event)" [placeholder]="placeholderValue" [(ngModel)]="textInput"> -->

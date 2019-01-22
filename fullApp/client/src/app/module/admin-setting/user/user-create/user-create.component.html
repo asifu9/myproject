@@ -1,0 +1,41 @@
+
+<span class="headling-style-admin">{{'createNewUser'|in18}}</span>
+<br>
+<form [formGroup]="userForm" novalidate>
+  <div >
+    <div class="input-field">
+      
+        <input  type="text"  placeholder="{{'name'|in18}}" formControlName="name">
+      <label >{{'name'|in18}}</label>
+    </div>
+    <div class="input-field">
+   
+        <input  type="text"  placeholder="{{'username'|in18}}" formControlName="userName">
+       <label >{{'username'|in18}}</label>
+    </div>
+    <div class="input-field">
+      
+        <input  type="password"  placeholder="{{'password'|in18}}" formControlName="password">
+      <label >{{'password'|in18}}</label>
+    </div>
+    <div class="input-field">
+      
+        <input  type="password"  placeholder="{{'passwordConfirm'|in18}}" formControlName="password">
+      <label >{{'passwordConfirm'|in18}}</label>
+    </div>
+
+<div class="ui divider"></div>
+  <div class="field is-horizontal">
+        <div class="button-section">
+         <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button>
+        &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{'save'|in18}}
+        </button>
+
+        </div>
+      </div>
+ </div>
+</form> 

@@ -1,0 +1,26 @@
+<div class="ui form">
+
+  <div class="input-field">
+    
+    <div *ngIf="widget">
+      <!--<select class='select-option' [ngClass]="this.errors.length>0 ? 'errorBorderStyle' : 'normalBorderStyle'" [disabled]="disabledValue" [(ngModel)]="textInput"  (change)="textBoxChanged($event)" >
+           
+              <option class='option' *ngFor="let item of widget.options" [selected]="textInput==item.storedValue" [value]="item?.storedValue">{{item?.displayValue}}</option>
+          </select>-->
+
+    <div class="dropdown1">
+               <mat-select [(ngModel)]="textInput" (select)="textBoxChanged($event)">
+              <mat-option  [value]="i.storedValue" *ngFor="let i of widget.options">{{i.displayValue}}</mat-option>
+            </mat-select>
+          
+        </div>
+
+
+
+    </div>
+    <label>{{widget.widgetDisplayName|in18}}<span *ngIf="required" >*</span> </label>
+     <div class="errorStyle" *ngFor="let ee of this.errors">
+        {{ee}}
+      </div>
+  </div>
+</div>

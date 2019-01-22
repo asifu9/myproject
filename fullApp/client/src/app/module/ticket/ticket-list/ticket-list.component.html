@@ -1,0 +1,51 @@
+
+<div class="container-flex">
+  <app-report-data [header]="'ticketDetails'" [createURL]="'/home/tickets/create'" [updateURL]="'/home/tickets/update'" (createEventEmitter)='showCreate($event)'  (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" [meta]="reportMeta" [data]="this.ticketList"></app-report-data>
+</div>
+<!--
+<table class="ui single line table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created On</th>
+      <th>Status</th>
+      <th>Assigned To</th>
+      <th>Priority</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="this.ticketList">
+
+    <tr *ngFor="let obj of this.ticketList">
+      <td>{{obj.subject}} </td>
+      <td>{{getDate(obj.createdOn)}}</td>
+      <td>{{ticketService.tickeStatusMap[obj.status]}} </td>
+      <td >
+
+          {{obj.assignedToUser?.name}}
+      </td>
+      <td>{{ticketService.ticketPriorityMap[obj.priority]}}</td>
+      <td>{{ticketService.ticketCategoryMap[obj.ticketCategoryId]}} </td>
+
+      <td>
+        <div class="dropdown">
+          <i class="large setting icon dropdown-toggle"></i>
+          <div class="dropdown-content">
+            <div *ngIf="this.status=='mytickets'">
+              <p><a class="button" style="width:150px;" (click)="updateByOwner(obj.id)">Update</a></p>
+            </div>
+             <div *ngIf="canResolveTicket=='FIXER' && this.status=='unassigned'">
+              <p><a class="button" style="width:150px;" (click)="updateTicket(obj.id)">Update</a></p>
+            </div>
+            <div *ngIf="canResolveTicket=='FIXER' && this.status=='assignedtome'">
+              <p><a class="button" style="width:150px;" (click)="updateTicket(obj.id)">Update</a></p>
+            </div>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>-->

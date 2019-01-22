@@ -1,0 +1,20 @@
+<span class="headling-style-admin">{{'createNewCategory'|in18}}</span>
+<form [formGroup]="ticketCategoryForm" novalidate>
+  <div class="wrapper">
+    <div class="input-field">
+      <input type="text" placeholder="{{'name'|in18}}" formControlName="name">
+      <label>{{'name'|in18}}</label>
+    </div>
+    <div class="ui divider"></div>
+    <div class="field is-horizontal">
+      <div class="button-section">
+        <button class="button-cancel" (click)="cancel()">
+          {{'cancel'|in18}}
+        </button> &nbsp;&nbsp;
+        <button class="button-save" (click)="createUpdate()">
+          {{buttonValue}}
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

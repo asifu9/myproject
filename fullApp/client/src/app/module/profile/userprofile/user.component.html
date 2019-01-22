@@ -1,0 +1,77 @@
+
+
+<div class="ui form">
+  <div class="fields" >
+
+  <div class="ten wide field" >
+    <h3 class="ui header">{{'user'|in18}}</h3>
+    <h5 class="ui header" style="color:gray;">Form to create new user</h5>
+      <div class="ui divider" ></div>
+  </div>
+  </div>
+
+  
+  <div class="fields" style="padding-top:10px;">
+    
+    <div class="eight wide field">
+      
+      <label>Name</label>
+      <input type="text" placeholder="First Name" [(ngModel)]="user.name" name="user.name"  >
+    </div>
+    
+  </div>
+  <div class="fields">
+    <div class="eight wide field">
+      <label>Address</label>
+      <textarea [(ngModel)]="user.address" name="user.address" rows="1" cols="1" ></textarea>
+
+    </div>
+    
+  </div>
+    <div class="fields">
+    <div class="four wide field">
+      <label>Date of Birth</label>
+    
+       <div class="ui calendar" id="example1">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+        <input type="text" placeholder="dd/mm/yyyy" [(ngModel)]="user.dob"   name="user.dob" id="user.dob">
+   
+    </div>
+  </div>
+    
+      
+    </div>
+    <div class="four wide field">
+      <label>E-mail</label>
+      <input type="email" placeholder="joe@schmoe.com" [(ngModel)]="user.email" name="user.email" >
+    </div>
+
+  </div>
+   <div class="fields">
+  
+     <div class="four wide field">
+      <label>Primary Contact Number</label>
+      <div class="field">
+        <input type="text" placeholder="(xxxxxxxxxx)" [(ngModel)]="user.primaryContact" name="user.primaryContact" >
+      </div>
+    </div>
+    <div class="four wide field">
+      <label>Second Contact Number</label>
+      <div class="field">
+        <input type="text" placeholder="(xxxxxxxxxx)" [(ngModel)]="user.secondaryContact" name="user.secondaryContact" >
+      </div>
+    </div>
+  </div>
+  <div class="fields">
+    <div class="ten wide field">
+  <div class="ui buttons right floated">
+  <button class="ui button" (click)="cancelUser()">Cancel</button>
+  <div class="or"></div>
+  <button *ngIf="id==null" class="ui positive button" (click)="createUser()">Create</button>
+<button *ngIf="id!=null" class="ui positive button" (click)="updateUser()">Update</button>
+
+  </div>
+  </div>
+</div>
+</div>

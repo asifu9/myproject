@@ -1,0 +1,21 @@
+
+<div class="ui secondary vertical menu">
+  <a class="item" *ngFor="let n of notifications; let i = index">
+    <div *ngIf="i<=5">
+    <div *ngIf="n.type=='Leave'">
+      <table>
+        <tr>
+          <td  >
+              <a [routerLink]="['leave/',n.valueId]">{{getUserName(n.sourceId)}} {{'appliedFor'|in18}} {{n?.valueObject?.leaveName}} {{'leave'|in18}}</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </div>
+
+  </a>
+  <div *ngIf="notifications && notifications.length>1">
+    <a [routerLink]="'notifications'"> {{'clickForMore'|in18}}</a>
+  </div>
+  
+</div>

@@ -1,0 +1,36 @@
+
+
+
+
+<!--<article class="media" style="margin-top:0px;padding-top:4px;">
+  <figure class="media-left adjustPosition">
+    <p >
+      
+    </p>
+  </figure>
+  <div class="media-content">-->
+    <div class="divider"></div>
+    <div *ngIf="isCanComment()">
+    <table style="width:100%;">
+      <tr>
+          <td class="tdFirstSection">
+              <img src="{{photo1}}" class="ui medium image" style="width:30px;height: 28px;">
+          </td>
+          <td class="tdSecondSection">
+              <textarea class="textarea adjustTextArea" [(ngModel)]="postComment.comment" placeholder="{{'addAComment'|in18}}"></textarea>
+          </td>
+          <td class="tdThirdSection">
+              <a class="button is-small" (click)="postCommentCreate()">{{'comment'|in18}}</a>
+          </td>
+      </tr>
+    </table>
+    </div>
+   
+  <!--</div>
+</article>-->
+  
+
+
+  <div  *ngFor="let item of (post?.commentCountObj?.comments ? post?.commentCountObj?.comments:[])">
+        <comment [com]="item" [feedId]="post.id" [user]="user"></comment>
+  </div>

@@ -1,0 +1,7 @@
+
+<div class="container-flex">
+
+
+  <app-report-data [header]="'project'" [createURL]="'create'" [updateURL]="'update'" (createEventEmitter)='showCreate($event)'  (editEventEmitter)="editRow($event)" (deleteEventEmitter)="deletedRow($event)" [createNeeded]="'true'" [meta]="meta" [data]="data"></app-report-data>
+
+</div>

@@ -1,0 +1,5 @@
+<app-report-data *ngIf="this.inputData.searchType=='user'" (notifiySelectEmitter)="updateParentUser($event)" [header]="'user'"  [createNeeded]="'false'" 
+      [meta]="metaUser" [data]="users"></app-report-data>
+
+<app-report-data *ngIf="this.inputData.searchType=='group'" (notifiySelectEmitter)="updateParentGroups($event)" [header]="'messageGroup'"  [createNeeded]="'false'" 
+      [meta]="metaUser" [data]="groups"></app-report-data>

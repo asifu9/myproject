@@ -1,0 +1,34 @@
+<div class="columns">
+  <div class="column">
+
+    <div class="ui feed adjustWidth">
+      <div class="event shadowCool" *ngFor="let n of notification; let i = index">
+
+        <div class="label ajustSize">
+          <img width="200px" height="200px" src="{{getPhotoPath(n.sourceId)}}">
+        </div>
+        <div class="content ">
+          <div class="summary ">
+            <a class="user">
+          {{getUserName(n.sourceId)}}
+        </a> Applied for {{n?.valueObject?.leaveName}} {{'leaveFor'|in18}} {{n?.valueObject?.days}} {{'days'|in18}}
+            <div class="date">
+              1 Hour Ago
+            </div>
+            <div class="button-section adjustVerticle">
+
+              <button class="button-save" (click)="updateLeaves(n?.valueId,n?.id)">{{'approve'|in18}}</button>
+              <button class="button-save" (click)="RejectLeaves(n?.valueId,n?.id)">{{'reject'|in18}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="input-field" *ngIf="showTextArea">
+      <textarea type="text" placeholder="Description" [(ngModel)]="comment"></textarea>
+      <label>{{'comment'|in18}} </label>
+    </div>
+  </div>
+</div>
