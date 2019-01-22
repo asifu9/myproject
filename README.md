@@ -49,8 +49,13 @@ Features to enhance:
 
 
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/1.png)
+<br>
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/2.png)
+<br>
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/3.png)
+<br>
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/4.png)
+<br>
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/5.png)
+<br>
 ![alt text](https://github.com/asifu9/myproject/blob/master/images/6.png)
